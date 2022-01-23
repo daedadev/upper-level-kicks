@@ -4,7 +4,10 @@ const sneaks = new SneaksAPI();
 
 router.get("/sneaker", async (req, res) => {
   try {
-    sneaks.getProductPrices("GX3791", function (err, products) {
+    // sneaks.getProductPrices("GX3791", function (err, products) {
+    //   res.send(products);
+    // });
+    sneaks.getProducts("Yeezy Cinder", 10, function (err, products) {
       res.send(products);
     });
   } catch (err) {
