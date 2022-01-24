@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Sneaker from "../components/Sneaker";
+import Sneaker from "../components/MainSneaker";
 
 const MainPage = () => {
   const [sneakers, setSneakers] = useState([]);
@@ -14,7 +14,6 @@ const MainPage = () => {
       .then((data) => data.json())
       .then((data) => {
         setSneakers(data);
-        console.log(sneakers);
       });
   }, []);
 
