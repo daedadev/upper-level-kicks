@@ -21,7 +21,7 @@ const MainPage = () => {
     <div>
       <ul>
         {sneakers.map((item) => {
-          return <Sneaker theSneaker={item} key={item.styleID} />;
+          return <Sneaker theSneaker={item} />;
         })}
       </ul>
     </div>
