@@ -14,27 +14,37 @@ Sneaker.init(
     },
     styleID: {
       type: DataTypes.STRING,
-      unique: true,
+      unique: false,
+      allowNull: false,
+    },
+    brand: {
+      type: DataTypes.STRING,
+      unique: false,
       allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
-      unique: true,
+      unique: false,
+      allowNull: false,
+    },
+    silhouette: {
+      type: DataTypes.STRING,
+      unique: false,
       allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
-      unique: true,
+      unique: false,
       allowNull: false,
     },
     shoeSize: {
       type: DataTypes.STRING,
-      unique: true,
+      unique: false,
       allowNull: false,
     },
     images: {
       type: DataTypes.STRING,
-      unique: true,
+      unique: false,
       allowNull: false,
     },
     user_id: {
