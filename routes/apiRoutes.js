@@ -2,9 +2,10 @@ const router = require("express").Router();
 const SneaksAPI = require("sneaks-api");
 const sneaks = new SneaksAPI();
 
-router.get("/products", async (req, res) => {
+// Return popular shoes /api/popular
+router.get("/popular", async (req, res) => {
   try {
-    sneaks.getProducts("Yeezy Cinder", 10, function (err, products) {
+    getMostPopular(20, function (err, products) {
       res.send(products);
     });
   } catch (err) {
@@ -12,9 +13,22 @@ router.get("/products", async (req, res) => {
   }
 });
 
-router.get("/prices", async (req, res) => {
+// Return search results /api/search/{search}
+// Also used for random search
+router.get("/search/:search", async (req, res) => {
   try {
-    sneaks.getProductPrices("GX3791", function (err, products) {
+    sneaks.getProducts(req.params.search, 10, function (err, products) {
+      res.send(products);
+    });
+  } catch (err) {
+    res.send(err);
+  }
+});
+
+// Get specific shoe info /api/product/{style}
+router.get("/product/:style", async (req, res) => {
+  try {
+    sneaks.getProductPrices(req.params.style, function (err, products) {
       res.send(products);
     });
   } catch (err) {
