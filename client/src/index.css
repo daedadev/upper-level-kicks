@@ -1,0 +1,23 @@
+/* tan/orange - color: #f8be4c; */
+/* light blue - color: #209fd2; */
+/* Red - color="#f20000" */
+/* Orangish Red - color="#ff3c00" */
+/* Green - color="#37d334" */
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  width: 100%;
+}
+
+.main-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}

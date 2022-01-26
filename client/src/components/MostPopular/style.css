@@ -1,0 +1,52 @@
+#mostpopular-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-radius: 2px;
+  border-color: rgb(117, 117, 117);
+  width: 100%;
+  max-width: 1400px;
+}
+
+#mostpopular-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 20px;
+}
+
+#mostpopular-left img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#mostpopular-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 20px;
+}
+
+#mostpopular-price-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.mostpopular-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
