@@ -17,7 +17,7 @@ router.get("/popular", async (req, res) => {
 // Also used for random search
 router.get("/search/:search", async (req, res) => {
   try {
-    sneaks.getProducts(req.params.search, 10, function (err, products) {
+    sneaks.getProducts(req.params.search, 20, function (err, products) {
       res.send(products);
     });
   } catch (err) {

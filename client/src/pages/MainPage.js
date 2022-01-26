@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import Sneaker from "../components/MainSneaker";
+import Sneaker from "../components/SneakerItem";
 import MostPopular from "../components/MostPopular";
 import Carousel from "react-elastic-carousel";
+import RandomShoe from "../components/RandomShoe";
 
 const MainPage = () => {
   const [sneakers, setSneakers] = useState([]);
@@ -35,6 +36,7 @@ const MainPage = () => {
             return <Sneaker theSneaker={item} />;
           })}
         </Carousel>
+        <RandomShoe />
       </article>
     </section>
   );
