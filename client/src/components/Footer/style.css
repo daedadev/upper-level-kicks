@@ -1,0 +1,77 @@
+/* Footer elements, Contact me elements */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  bottom: 0;
+  border-style: none;
+  background-color: rgb(49, 49, 49);
+  padding: 1%;
+  padding-bottom: 50px;
+  margin-top: 20px;
+}
+
+/* Footer Top */
+#footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  margin: 10px;
+}
+
+#contact-text h1 {
+  color: aliceblue;
+  font-size: xx-large;
+}
+
+/* Footer Bottom */
+#footer-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#contact-form-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  border-radius: 5px;
+  padding: 3%;
+}
+
+#contact-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+  width: 50%;
+  color: aliceblue;
+}
+
+#contact-details ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1%;
+  width: 100%;
+}
+
+footer a {
+  color: aliceblue;
+}
+
+#contact-form-holder {
+  display: flex;
+  flex-direction: column;
+}

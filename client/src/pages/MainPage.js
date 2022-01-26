@@ -7,7 +7,7 @@ const MainPage = () => {
   const [sneakers, setSneakers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/test/products", {
+    fetch("http://localhost:3001/api/popular", {
       method: `GET`,
       headers: {
         "Content-Type": "application/json",
@@ -19,17 +19,20 @@ const MainPage = () => {
       });
   }, []);
 
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 500, itemsToShow: 2 },
+    { width: 768, itemsToShow: 3 },
+    { width: 1200, itemsToShow: 4 },
+  ];
+
   return (
     <section className="main-holder">
-      <MostPopular />
+      <MostPopular shoe={sneakers[0]} />
       <article id="carousel-holder">
-        <Carousel>
+        <Carousel breakPoints={breakPoints} itemsToScroll={5}>
           {sneakers.map((item) => {
-            return (
-              <li>
-                <Sneaker theSneaker={item} />;
-              </li>
-            );
+            return <Sneaker theSneaker={item} />;
           })}
         </Carousel>
       </article>

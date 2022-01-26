@@ -3,9 +3,9 @@ const SneaksAPI = require("sneaks-api");
 const sneaks = new SneaksAPI();
 
 // Return popular shoes /api/popular
-router.get("/mostpopular", async (req, res) => {
+router.get("/popular", async (req, res) => {
   try {
-    sneaks.getMostPopular(1, function (err, products) {
+    sneaks.getMostPopular(10, function (err, products) {
       res.send(products);
     });
   } catch (err) {
