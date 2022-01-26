@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Sneaker from "../components/MainSneaker";
 import MostPopular from "../components/MostPopular";
+import Carousel from "react-elastic-carousel";
 
 const MainPage = () => {
   const [sneakers, setSneakers] = useState([]);
@@ -21,11 +22,17 @@ const MainPage = () => {
   return (
     <section className="main-holder">
       <MostPopular />
-      <ul>
-        {sneakers.map((item) => {
-          return <Sneaker theSneaker={item} />;
-        })}
-      </ul>
+      <article id="carousel-holder">
+        <Carousel>
+          {sneakers.map((item) => {
+            return (
+              <li>
+                <Sneaker theSneaker={item} />;
+              </li>
+            );
+          })}
+        </Carousel>
+      </article>
     </section>
   );
 };

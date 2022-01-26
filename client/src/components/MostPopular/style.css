@@ -4,7 +4,8 @@
   align-items: center;
   justify-content: center;
   border-style: solid;
-  border-radius: 2px;
+  border-radius: 10px;
+  border-width: 2px;
   border-color: rgb(117, 117, 117);
   width: 100%;
   max-width: 1400px;

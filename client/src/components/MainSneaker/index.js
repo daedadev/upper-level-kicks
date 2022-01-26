@@ -1,3 +1,5 @@
+import "./style.css";
+
 export default function Sneaker(theSneaker, key) {
   var sneaker = theSneaker.theSneaker;
 
@@ -15,11 +17,10 @@ export default function Sneaker(theSneaker, key) {
   var resellLinks = sneaker.resellLinks;
 
   return (
-    <li id={styleID} className="main-sneaker-large-holder">
+    <div id={styleID} className="main-sneaker-large-holder">
       <section className="main-sneaker-holder">
         <article className="main-sneaker-top">
           <h1>{shoeName}</h1>
-          <h1>{brand}</h1>
         </article>
         <article className="main-sneaker-bottom">
           <img className="main-sneaker-image" src={thumbnail}></img>
@@ -30,6 +31,6 @@ export default function Sneaker(theSneaker, key) {
           </nav>
         </article>
       </section>
-    </li>
+    </div>
   );
 }
