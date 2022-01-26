@@ -11,17 +11,15 @@
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-  padding-top: 2%;
 }
 
 .form-item-holder h3 {
   font-size: larger;
   color: aliceblue;
-  padding-bottom: 2%;
 }
 
 .form-input {
-  background-color: rgb(83, 83, 83);
+  background-color: #0076a5;
   color: aliceblue;
   font-size: medium;
   border-style: none;
@@ -48,22 +46,28 @@
 #submit-input {
   width: 50px;
   height: 20px;
-  background-color: rgb(83, 83, 83);
-  border-color: rgb(83, 83, 83);
+  background-color: #0076a5;
+  border-color: #0076a5;
   border-style: solid;
   font-size: small;
   color: aliceblue;
   cursor: pointer;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 #submit-input:hover {
   width: 50px;
   height: 20px;
-  background-color: rgb(116, 116, 116);
-  border-color: rgb(116, 116, 116);
+  background-color: #00b7ff;
+  border-color: #00b7ff;
   border-style: solid;
   font-size: medium;
   color: aliceblue;
   cursor: pointer;
   transition: 0.1s;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }

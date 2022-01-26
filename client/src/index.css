@@ -10,10 +10,6 @@ body {
   margin: 0;
 }
 
-:root {
-  width: 100%;
-}
-
 .main-holder {
   display: flex;
   flex-direction: column;
@@ -23,7 +19,7 @@ body {
 }
 
 #carousel-holder {
-  width: 100%;
+  width: 90%;
   max-width: 1400px;
   padding-top: 40px;
 }

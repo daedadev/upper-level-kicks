@@ -7,8 +7,7 @@ footer {
   width: 100%;
   bottom: 0;
   border-style: none;
-  background-color: rgb(49, 49, 49);
-  padding: 1%;
+  background-color: #209fd2;
   padding-bottom: 50px;
   margin-top: 20px;
 }
@@ -24,6 +23,7 @@ footer {
 }
 
 #contact-text h1 {
+  padding-top: 20px;
   color: aliceblue;
   font-size: xx-large;
 }
@@ -33,7 +33,7 @@ footer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
 }
 
@@ -43,7 +43,6 @@ footer {
   justify-content: center;
   width: 40%;
   border-radius: 5px;
-  padding: 3%;
 }
 
 #contact-details {
