@@ -22,6 +22,7 @@ export default function Header() {
               id="search-input"
               type="text"
               placeholder="Search For Shoes"
+              autoComplete="off"
             ></input>
           </form>
         </article>

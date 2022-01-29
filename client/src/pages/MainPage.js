@@ -6,6 +6,7 @@ import RandomShoe from "../components/RandomShoe";
 
 const MainPage = () => {
   const [sneakers, setSneakers] = useState([]);
+  const [popularSneaker, setPopularSneaker] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3001/api/popular", {
@@ -27,12 +28,18 @@ const MainPage = () => {
     { width: 1200, itemsToShow: 4 },
   ];
 
+  var arrayLoop = [];
+
+  for (var i = 1; i < sneakers.length; i++) {
+    arrayLoop.push(sneakers[i]);
+  }
+
   return (
     <section className="main-holder">
       <MostPopular shoe={sneakers[0]} />
       <article id="carousel-holder">
-        <Carousel breakPoints={breakPoints} itemsToScroll={5}>
-          {sneakers.map((item) => {
+        <Carousel breakPoints={breakPoints} itemsToScroll={1}>
+          {arrayLoop.map((item) => {
             return <Sneaker theSneaker={item} />;
           })}
         </Carousel>

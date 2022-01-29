@@ -1,39 +1,43 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function RandomShoe() {
   const [randomShoe, setRandomShoe] = useState([]);
   const [randomLowPrice, setRandomLowPrice] = useState([]);
 
-  function returnRandom() {
+  async function returnRandom() {
     var randomArray = [
       "Nike",
       "Jordan",
       "Adidas",
       "Yeezy",
       "New Balance",
-      "Supreme",
       "Converse",
     ];
 
     const randomSearch =
       randomArray[Math.floor(Math.random() * randomArray.length)];
 
-    fetch(`http://localhost:3001/api/search/${randomSearch}`, {
-      method: `GET`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        setRandomShoe(data[Math.floor(Math.random() * randomArray.length)]);
-        lowestPrice(
-          randomShoe.lowestResellPrice.stockX,
-          randomShoe.lowestResellPrice.goat,
-          randomShoe.lowestResellPrice.flightClub
-        );
-      });
+    try {
+      await fetch(`http://localhost:3001/api/search/${randomSearch}`, {
+        method: `GET`,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((data) => data.json())
+        .then((data) => {
+          setRandomShoe(data[Math.floor(Math.random() * randomArray.length)]);
+          lowestPrice(
+            randomShoe.lowestResellPrice.stockX,
+            randomShoe.lowestResellPrice.goat,
+            randomShoe.lowestResellPrice.flightClub
+          );
+        });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   function lowestPrice(stockx, goat, flightclub) {
@@ -63,14 +67,21 @@ export default function RandomShoe() {
         <article className="random-sneaker-image">
           <img src={randomShoe.thumbnail}></img>
         </article>
+        <h3>Retail Price: ${randomShoe.retailPrice}</h3>
       </article>
       <article className="random-sneaker-right">
         <p>{randomShoe.description}</p>
-        <h3>Retail Price: ${randomShoe.retailPrice}</h3>
-        <h2>
-          Lowest Resell Price: ${randomLowPrice[0]} - {randomLowPrice[1]}
-        </h2>
-        <button onClick={returnRandom}>Random</button>
+
+        <h2>Lowest Resell Price: ${randomLowPrice[0]}</h2>
+        <h2>{randomLowPrice[1]}</h2>
+        <button onClick={returnRandom}>Random Shoe</button>
+        <Link
+          to={{
+            pathname: `/result/?styleID=${randomShoe.styleID}`,
+          }}
+        >
+          <button>Shoe Info</button>
+        </Link>
       </article>
     </section>
   );
