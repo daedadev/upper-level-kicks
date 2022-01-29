@@ -6,7 +6,7 @@ export default function Sneaker(theSneaker, key) {
 
   var lowestResellPrice = sneaker.lowestResellPrice;
   var brand = sneaker.brand;
-  var silhouette = sneaker.silhouette;
+  var silhoutte = sneaker.silhoutte;
   var shoeName = sneaker.shoeName;
   var styleID = sneaker.styleID;
   var retailPrice = sneaker.retailPrice;
@@ -15,11 +15,22 @@ export default function Sneaker(theSneaker, key) {
   var description = sneaker.description;
   var resellLinks = sneaker.resellLinks;
 
+  function checkLocation() {
+    console.log(window.location.pathname);
+    if (
+      window.location.pathname ===
+      `/result/?styleID=${sneaker.styleID}&make=${sneaker.silhoutte}`
+    ) {
+      window.location.reload();
+      window.location.pathname.as;
+    }
+  }
+
   return (
     <div id={styleID} className="main-sneaker-large-holder">
       <Link
         to={{
-          pathname: `/result/?styleID=${sneaker.styleID}`,
+          pathname: `/result/?styleID=${sneaker.styleID}&make=${sneaker.silhoutte}`,
           state: {
             styleID: sneaker.styleID,
             itemSilhouette: sneaker.silhouette,

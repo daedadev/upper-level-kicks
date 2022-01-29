@@ -9,8 +9,8 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/result" element={<ShoePage />} />
+        <Route path="/" element={<MainPage />} key={location.href} />
+        <Route path="/result" element={<ShoePage />} key={location.href} />
       </Routes>
       <Footer />
     </Router>

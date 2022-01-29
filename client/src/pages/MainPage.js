@@ -8,17 +8,25 @@ const MainPage = () => {
   const [sneakers, setSneakers] = useState([]);
   const [popularSneaker, setPopularSneaker] = useState([]);
 
+  async function getPopular() {
+    try {
+      await fetch("http://localhost:3001/api/popular", {
+        method: `GET`,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((data) => data.json())
+        .then((data) => {
+          setSneakers(data);
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   useEffect(() => {
-    fetch("http://localhost:3001/api/popular", {
-      method: `GET`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        setSneakers(data);
-      });
+    getPopular();
   }, []);
 
   const breakPoints = [
