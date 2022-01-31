@@ -61,17 +61,52 @@
   justify-content: center;
 }
 
-.shoeinfo-size-holder {
+.shoeinfo-bottom-holder {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  border-style: solid;
-  border-radius: 10px;
-  border-width: 2px;
-  border-color: rgb(117, 117, 117);
-  width: 90%;
-  height: 700px;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
   margin-bottom: 40px;
   max-width: 1400px;
+}
+
+#size-item-holder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 0px;
+}
+
+.size-item-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.size-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px;
+  width: 10%;
+  max-width: 200px;
+}
+
+.price-text {
+  color: #20bb1d;
+}
+
+#bottom-info-holder {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }

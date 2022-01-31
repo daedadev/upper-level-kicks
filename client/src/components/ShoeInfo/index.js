@@ -8,31 +8,29 @@ export default function ShoeInfo({ shoe }) {
   var sizeArray = [];
 
   function setShoeSeller(seller) {
+    console.log(seller);
     switch (seller) {
       case "stockX":
         shoeSizes = shoe.resellPrices.stockX;
-
+        setShoeSize();
         break;
       case "goat":
         shoeSizes = shoe.resellPrices.goat;
-
+        setShoeSize();
         break;
       case "flightClub":
         shoeSizes = shoe.resellPrices.flightClub;
-
+        setShoeSize();
         break;
     }
   }
 
   function setShoeSize() {
-    for (const [key, value] of Object.entries(shoeSizes)) {
-      sizeArray.push({
-        size: key,
-        price: value,
-      });
-    }
-    setShoeSizeList(sizeArray);
-    console.log(shoeSizeList);
+    var basicArray = Object.entries(shoeSizes)
+      .map(([size, price]) => ({ size, price }))
+      .sort((a, b) => a.size - b.size);
+
+    setShoeSizeList(basicArray);
   }
 
   useEffect(() => {
@@ -50,28 +48,40 @@ export default function ShoeInfo({ shoe }) {
           <h1>{shoe.shoeName}</h1>
           <p>{shoe.description}</p>
           <article className="shoeinfo-price-holder">
-            <button className="shoeinfo-price">
+            <button
+              onClick={() => setShoeSeller("stockX")}
+              className="shoeinfo-price"
+            >
               <h1>StockX</h1>
               <h2>${shoe.lowestResellPrice.stockX}</h2>
             </button>
-            <button className="shoeinfo-price">
+            <button
+              onClick={() => setShoeSeller("goat")}
+              className="shoeinfo-price"
+            >
               <h1>GOAT</h1>
               <h2>${shoe.lowestResellPrice.goat}</h2>
             </button>
-            <button className="shoeinfo-price">
+            <button
+              onClick={() => setShoeSeller("flightClub")}
+              className="shoeinfo-price"
+            >
               <h1>FlightClub</h1>
               <h2>${shoe.lowestResellPrice.flightClub}</h2>
             </button>
           </article>
         </article>
       </section>
-      <section className="shoeinfo-size-holder">
-        <ul>
+      <section className="shoeinfo-bottom-holder">
+        <article id="bottom-info-holder">
+          <h1>{shoe.colorway}</h1>
+        </article>
+        <ul id="size-item-holder">
           {shoeSizeList.map((item) => {
             return (
-              <li>
-                <h1>Size {item.size}</h1>
-                <h1>{item.price}</h1>
+              <li className="size-item">
+                <label className="size-text">{item.size}</label>
+                <label className="price-text">${item.price}</label>
               </li>
             );
           })}
