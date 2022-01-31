@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./style.css";
 
-export default function Sneaker(theSneaker, key) {
+export default function Sneaker(theSneaker, changeState) {
   var sneaker = theSneaker.theSneaker;
 
   var lowestResellPrice = sneaker.lowestResellPrice;
@@ -15,20 +15,11 @@ export default function Sneaker(theSneaker, key) {
   var description = sneaker.description;
   var resellLinks = sneaker.resellLinks;
 
-  function checkLocation() {
-    console.log(window.location.pathname);
-    if (
-      window.location.pathname ===
-      `/result/?styleID=${sneaker.styleID}&make=${sneaker.silhoutte}`
-    ) {
-      window.location.reload();
-      window.location.pathname.as;
-    }
-  }
-
   return (
     <div id={styleID} className="main-sneaker-large-holder">
       <Link
+        key={location.href}
+        onClick={changeState}
         to={{
           pathname: `/result/?styleID=${sneaker.styleID}&make=${sneaker.silhoutte}`,
           state: {
@@ -45,11 +36,6 @@ export default function Sneaker(theSneaker, key) {
             <article className="main-sneaker-image">
               <img src={thumbnail}></img>
             </article>
-            <nav className="main-sneaker-nav">
-              <a href={resellLinks.stockX}>StockX</a>
-              <a href={resellLinks.goat}>GOAT</a>
-              <a href={resellLinks.flightClub}>FlightClub</a>
-            </nav>
           </article>
         </section>
       </Link>

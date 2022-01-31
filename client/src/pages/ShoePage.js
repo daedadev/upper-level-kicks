@@ -14,6 +14,20 @@ const ShoePage = () => {
   const [shoeSearch, setShoeSearch] = useState();
   const [relatedSearch, setRelatedSearch] = useState();
 
+  function newShoeSearch(newShoeID) {
+    fetch(`http://localhost:3001/api/product/${newShoeID}`, {
+      method: `GET`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((data) => data.json())
+      .then((data) => {
+        setShoeSearch(data);
+        console.log(data);
+      });
+  }
+
   async function getShoeInfo() {
     try {
       await fetch(`http://localhost:3001/api/product/${styleID}`, {
@@ -55,22 +69,33 @@ const ShoePage = () => {
   ];
 
   if (relatedSearch) {
-    var theCarousel = (
-      <Carousel breakPoints={breakPoints} itemsToScroll={1}>
-        {relatedSearch.map((item) => {
-          return <Sneaker theSneaker={item} />;
-        })}
-      </Carousel>
+    return (
+      <section className="main-holder">
+        <ShoeInfo shoe={shoeSearch} />
+        <article id="carousel-holder">
+          <Carousel breakPoints={breakPoints} itemsToScroll={1}>
+            {relatedSearch.map((item) => {
+              return (
+                <Sneaker
+                  changeState={newShoeSearch}
+                  theSneaker={item}
+                  key={item.styleID}
+                />
+              );
+            })}
+          </Carousel>
+        </article>
+      </section>
     );
   } else {
-    theCarousel = <div></div>;
+    return (
+      <section className="main-holder">
+        <article id="carousel-holder">
+          <div></div>
+        </article>
+      </section>
+    );
   }
-  return (
-    <section className="main-holder">
-      <ShoeInfo shoe={shoeSearch} />
-      <article id="carousel-holder">{theCarousel}</article>
-    </section>
-  );
 };
 
 export default ShoePage;

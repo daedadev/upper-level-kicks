@@ -1,0 +1,77 @@
+.shoeinfo-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: rgb(117, 117, 117);
+  width: 100%;
+  max-width: 1400px;
+}
+
+.shoeinfo-top-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.shoeinfo-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 20px;
+}
+
+.shoeinfo-left img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.shoeinfo-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  padding: 20px;
+}
+
+.shoeinfo-price-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.shoeinfo-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.shoeinfo-size-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-style: solid;
+  border-radius: 10px;
+  border-width: 2px;
+  border-color: rgb(117, 117, 117);
+  width: 90%;
+  height: 700px;
+  margin-bottom: 40px;
+  max-width: 1400px;
+}
