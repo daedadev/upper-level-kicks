@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 
 const ShoeContext = React.createContext({
-  test: "",
-  setTest: (shoe) => {},
+  shoeContext: "",
+  setShoeContext: (shoe) => {},
+  relatedShoeContext: "",
+  setRelatedShoeContext: (shoe) => {},
 });
 
 export const ContextProvider = (props) => {
-  const [test, setTest] = useState("default");
-  function newShoeSearch(newShoeID) {
-    fetch(`http://localhost:3001/api/product/${newShoeID}`, {
-      method: `GET`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        setShoeSearch(data);
-        console.log(data);
-      });
+  const [shoeContext, setShoeContext] = useState();
+  const [relatedShoeContext, setRelatedShoeContext] = useState();
+
+  function setShoeContextFunction(data) {
+    setShoeContext(data);
+  }
+
+  function setRelatedShoeContextFunction(data) {
+    setRelatedShoeContext(data);
   }
 
   const contextValue = {
-    test: test,
-    testFunction: setTest,
+    shoeContext: shoeContext,
+    setShoeContext: setShoeContextFunction,
+    relatedShoeContext: relatedShoeContext,
+    setRelatedShoeContext: setRelatedShoeContextFunction,
   };
 
   return (

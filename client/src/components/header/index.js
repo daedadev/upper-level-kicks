@@ -1,14 +1,38 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ShoeContext from "../../context/context";
 import "./style.css";
 
 export default function Header() {
+  const shoeCtx = useContext(ShoeContext);
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  function resetState() {
+  function newShoeSearched(shoe, make) {
     setSearchInput("");
     setSearchResults([]);
+    fetch(`http://localhost:3001/api/product/${shoe}`, {
+      method: `GET`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((data) => data.json())
+      .then((data) => {
+        shoeCtx.setShoeContext(data);
+        console.log(data);
+      });
+    fetch(`http://localhost:3001/api/search/${make}`, {
+      method: `GET`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((data) => data.json())
+      .then((data) => {
+        shoeCtx.setRelatedShoeContext(data);
+        console.log(data);
+      });
   }
 
   useEffect(() => {
@@ -64,7 +88,7 @@ export default function Header() {
                     to={{
                       pathname: `/result/?styleID=${item.styleID}&make=${item.silhoutte}`,
                     }}
-                    onClick={resetState}
+                    onClick={() => newShoeSearched(item.styleID, item.make)}
                   >
                     <div className="inline-search-item-holder">
                       <img src={item.thumbnail}></img>

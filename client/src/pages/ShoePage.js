@@ -7,29 +7,10 @@ import ShoeContext from "../context/context";
 const ShoePage = () => {
   const shoeCtx = useContext(ShoeContext);
 
-  console.log(shoeCtx.test);
-
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const styleID = urlParams.get("styleID");
   const make = urlParams.get("make");
-
-  const [shoeSearch, setShoeSearch] = useState();
-  const [relatedSearch, setRelatedSearch] = useState();
-
-  function newShoeSearch(newShoeID) {
-    fetch(`http://localhost:3001/api/product/${newShoeID}`, {
-      method: `GET`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((data) => data.json())
-      .then((data) => {
-        setShoeSearch(data);
-        console.log(data);
-      });
-  }
 
   async function getShoeInfo() {
     try {
@@ -41,7 +22,7 @@ const ShoePage = () => {
       })
         .then((data) => data.json())
         .then((data) => {
-          setShoeSearch(data);
+          shoeCtx.setShoeContext(data);
           console.log(data);
         });
       await fetch(`http://localhost:3001/api/search/${make}`, {
@@ -52,7 +33,7 @@ const ShoePage = () => {
       })
         .then((info) => info.json())
         .then((info) => {
-          setRelatedSearch(info);
+          shoeCtx.setRelatedShoeContext(info);
           console.log(info);
         });
     } catch (err) {
@@ -71,20 +52,14 @@ const ShoePage = () => {
     { width: 1200, itemsToShow: 4 },
   ];
 
-  if (relatedSearch) {
+  if (shoeCtx.relatedShoeContext) {
     return (
       <section className="main-holder">
-        <ShoeInfo shoe={shoeSearch} />
+        <ShoeInfo shoe={shoeCtx.shoeContext} />
         <article id="carousel-holder">
           <Carousel breakPoints={breakPoints} itemsToScroll={1}>
-            {relatedSearch.map((item) => {
-              return (
-                <Sneaker
-                  changeState={newShoeSearch}
-                  theSneaker={item}
-                  key={item.styleID}
-                />
-              );
+            {shoeCtx.relatedShoeContext.map((item) => {
+              return <Sneaker theSneaker={item} key={item.styleID} />;
             })}
           </Carousel>
         </article>
