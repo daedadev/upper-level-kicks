@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { useContext, useEffect, createContext, useState } from "react";
 import Sneaker from "../components/SneakerItem";
-import MostPopular from "../components/MostPopular";
 import Carousel from "react-elastic-carousel";
 import ShoeInfo from "../components/ShoeInfo";
+import ShoeContext from "../context/context";
 
 const ShoePage = () => {
+  const shoeCtx = useContext(ShoeContext);
+
+  console.log(shoeCtx.test);
+
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const styleID = urlParams.get("styleID");

@@ -94,3 +94,16 @@
   height: 10px;
   background-color: #209fd2;
 }
+
+/* Inline search holder ---------------- */
+
+.inline-search-holder {
+  width: 50%;
+}
+
+.inline-search-item-holder {
+}
+
+.inline-search-item-holder img {
+  width: 50px;
+}

@@ -1,5 +1,11 @@
 import { render } from "react-dom";
 import App from "./App";
+import { ContextProvider } from "./context/context";
 import "./index.css";
 
-render(<App />, document.getElementById("root"));
+render(
+  <ContextProvider>
+    <App />
+  </ContextProvider>,
+  document.getElementById("root")
+);
