@@ -7,7 +7,7 @@ const ShoeContext = React.createContext({
   setRelatedShoeContext: (shoe) => {},
 });
 
-export const ContextProvider = (props) => {
+export const ShoeContextProvider = (props) => {
   const [shoeContext, setShoeContext] = useState();
   const [relatedShoeContext, setRelatedShoeContext] = useState();
 

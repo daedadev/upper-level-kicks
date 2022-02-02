@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ShoeContext from "../../context/context";
+import ShoeContext from "../../context/ShoeContext";
 import "./style.css";
 
 export default function Header() {
   const shoeCtx = useContext(ShoeContext);
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [showInlineSearch, setShowInlineSearch] = useState("search-off");
 
   function newShoeSearched(shoe, make) {
     setSearchInput("");
@@ -36,6 +37,12 @@ export default function Header() {
   }
 
   useEffect(() => {
+    if (searchInput === "") {
+      setShowInlineSearch("search-off");
+    } else {
+      setShowInlineSearch("search-on");
+    }
+
     fetch(`http://localhost:3001/api/search/${searchInput}`, {
       method: `GET`,
       headers: {
@@ -44,8 +51,12 @@ export default function Header() {
     })
       .then((info) => info.json())
       .then((info) => {
-        setSearchResults(info);
-        console.log(info);
+        if (info.ok) {
+          setSearchResults(info);
+          console.log(info);
+        } else {
+          console.log("Response is " + info.ok);
+        }
       });
   }, [searchInput]);
 
@@ -53,11 +64,18 @@ export default function Header() {
     <header id="header">
       <section id="header-holder">
         <article id="header-top-holder">
-          <h3>Sneaker Application</h3>
+          <Link
+            to={{
+              pathname: `/`,
+            }}
+          >
+            <h3>Sneaker Application</h3>
+          </Link>
+
           <nav>
             <a>about</a>
-            <a>login</a>
-            <a>sign up</a>
+            <a href="/login">login</a>
+            <a href="/login">sign up</a>
             <a>your closet</a>
           </nav>
         </article>
@@ -81,24 +99,24 @@ export default function Header() {
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
             ></input>
-            <section className="inline-search-holder">
-              {searchResults.map((item) => {
-                return (
-                  <Link
-                    to={{
-                      pathname: `/result/?styleID=${item.styleID}&make=${item.silhoutte}`,
-                    }}
-                    onClick={() => newShoeSearched(item.styleID, item.make)}
-                  >
-                    <div className="inline-search-item-holder">
-                      <img src={item.thumbnail}></img>
-                      <h1>{item.shoeName}</h1>
-                    </div>
-                  </Link>
-                );
-              })}
-            </section>
           </form>
+          <section id={showInlineSearch} className="inline-search-holder">
+            {searchResults.map((item) => {
+              return (
+                <Link
+                  to={{
+                    pathname: `/result/?styleID=${item.styleID}&make=${item.silhoutte}`,
+                  }}
+                  onClick={() => newShoeSearched(item.styleID, item.make)}
+                >
+                  <div className="inline-search-item-holder">
+                    <img src={item.thumbnail}></img>
+                    <h1>{item.shoeName}</h1>
+                  </div>
+                </Link>
+              );
+            })}
+          </section>
         </article>
       </section>
       <div id="banner"></div>

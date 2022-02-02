@@ -1,8 +1,8 @@
-import { useContext, useEffect, createContext, useState } from "react";
+import { useContext, useEffect } from "react";
 import Sneaker from "../components/SneakerItem";
 import Carousel from "react-elastic-carousel";
 import ShoeInfo from "../components/ShoeInfo";
-import ShoeContext from "../context/context";
+import ShoeContext from "../context/ShoeContext";
 
 const ShoePage = () => {
   const shoeCtx = useContext(ShoeContext);

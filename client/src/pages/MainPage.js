@@ -6,7 +6,6 @@ import RandomShoe from "../components/RandomShoe";
 
 const MainPage = () => {
   const [sneakers, setSneakers] = useState([]);
-  const [popularSneaker, setPopularSneaker] = useState([]);
 
   async function getPopular() {
     try {

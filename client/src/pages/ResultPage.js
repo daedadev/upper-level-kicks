@@ -24,7 +24,7 @@ const SearchResultPage = () => {
 
   if (searchData) {
     return (
-      <section>
+      <section className="main-holder">
         {searchData.map((item) => {
           return (
             <div>
