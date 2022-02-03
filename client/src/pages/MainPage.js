@@ -3,9 +3,14 @@ import Sneaker from "../components/SneakerItem";
 import MostPopular from "../components/MostPopular";
 import Carousel from "react-elastic-carousel";
 import RandomShoe from "../components/RandomShoe";
+import LoadingSneaker from "../components/LoadingComponents/SneakerItem";
+import LoadingShoeInfo from "../components/LoadingComponents/SneakerInfo";
+import ShoeInfo from "../components/ShoeInfo";
 
 const MainPage = () => {
   const [sneakers, setSneakers] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingMain, setIsLoadingMain] = useState();
 
   async function getPopular() {
     try {
@@ -19,6 +24,8 @@ const MainPage = () => {
         .then((data) => {
           setSneakers(data);
         });
+      setIsLoadingMain(true);
+      setIsLoading(true);
     } catch (err) {
       console.log(err);
     }
@@ -41,14 +48,22 @@ const MainPage = () => {
     arrayLoop.push(sneakers[i]);
   }
 
+  var loadArray = [1, 2, 3, 4, 5];
+  const loadingShoe = loadArray.map((item) => {
+    return <LoadingSneaker />;
+  });
+
+  const loadedShoe = arrayLoop.map((item) => {
+    return <Sneaker theSneaker={item} />;
+  });
+
   return (
     <section className="main-holder">
-      <MostPopular shoe={sneakers[0]} />
+      {isLoadingMain ? <ShoeInfo shoe={sneakers[0]} /> : <LoadingShoeInfo />}
+
       <article id="carousel-holder">
         <Carousel breakPoints={breakPoints} itemsToScroll={1}>
-          {arrayLoop.map((item) => {
-            return <Sneaker theSneaker={item} />;
-          })}
+          {isLoading ? loadedShoe : loadingShoe}
         </Carousel>
         <RandomShoe />
       </article>

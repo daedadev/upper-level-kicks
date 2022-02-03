@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import Sneaker from "../components/SneakerItem";
 import Carousel from "react-elastic-carousel";
 import ShoeInfo from "../components/ShoeInfo";
+import LoadingSneaker from "../components/LoadingComponents/SneakerItem";
+import LoadingShoeInfo from "../components/LoadingComponents/SneakerInfo";
 
 const ShoePage = () => {
   const queryString = window.location.search;
@@ -13,6 +15,8 @@ const ShoePage = () => {
 
   const [shoeInfo, setShoeInfo] = useState();
   const [relatedSearch, setRelatedSearch] = useState();
+  const [isLoadingRelated, setIsLoadingRelated] = useState();
+  const [isLoadingMain, setIsLoadingMain] = useState();
 
   async function getShoeInfo() {
     try {
@@ -27,6 +31,7 @@ const ShoePage = () => {
           setShoeInfo(data);
           console.log(data);
         });
+      setIsLoadingMain(true);
       await fetch(`http://localhost:3001/api/search/${make}`, {
         method: `GET`,
         headers: {
@@ -38,6 +43,7 @@ const ShoePage = () => {
           setRelatedSearch(info);
           console.log(info);
         });
+      setIsLoadingRelated(true);
     } catch (err) {
       console.log(err);
     }
@@ -54,28 +60,29 @@ const ShoePage = () => {
     { width: 1200, itemsToShow: 4 },
   ];
 
+  var loadArray = [1, 2, 3, 4, 5];
+  const loadingShoe = loadArray.map((item) => {
+    return <LoadingSneaker />;
+  });
+
+  var loadedShoe;
+
   if (relatedSearch) {
-    return (
-      <section className="main-holder">
-        <ShoeInfo shoe={shoeInfo} />
-        <article id="carousel-holder">
-          <Carousel breakPoints={breakPoints} itemsToScroll={1}>
-            {relatedSearch.map((item) => {
-              return <Sneaker theSneaker={item} key={item.styleID} />;
-            })}
-          </Carousel>
-        </article>
-      </section>
-    );
-  } else {
-    return (
-      <section className="main-holder">
-        <article id="carousel-holder">
-          <div></div>
-        </article>
-      </section>
-    );
+    loadedShoe = relatedSearch.map((item) => {
+      return <Sneaker theSneaker={item} key={item.styleID} />;
+    });
   }
+
+  return (
+    <section className="main-holder">
+      {isLoadingMain ? <ShoeInfo shoe={shoeInfo} /> : <LoadingShoeInfo />}
+      <article id="carousel-holder">
+        <Carousel breakPoints={breakPoints} itemsToScroll={1}>
+          {isLoadingRelated ? loadedShoe : loadingShoe}
+        </Carousel>
+      </article>
+    </section>
+  );
 };
 
 export default ShoePage;

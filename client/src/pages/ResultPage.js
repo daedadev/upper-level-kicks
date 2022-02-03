@@ -35,7 +35,7 @@ const SearchResultPage = () => {
       </section>
     );
   } else {
-    return <section></section>;
+    return <section className="main-holder"></section>;
   }
 };
 
