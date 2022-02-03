@@ -7,9 +7,10 @@ export default function Header() {
   const [searchResults, setSearchResults] = useState([]);
   const [showInlineSearch, setShowInlineSearch] = useState("search-off");
 
-  function refreshSearch() {
+  function refreshSearch(searchInput) {
     setSearchInput("");
     setSearchResults([]);
+    window.location.href = `/search/${searchInput}`;
   }
 
   async function runSearch(input) {
@@ -18,7 +19,7 @@ export default function Header() {
     }
 
     try {
-      await fetch(`http://localhost:3001/api/search/${searchInput}`, {
+      await fetch(`http://localhost:3001/api/search/${input}`, {
         method: `GET`,
         headers: {
           "Content-Type": "application/json",
@@ -68,13 +69,13 @@ export default function Header() {
         <article id="header-search-holder">
           <form id="search-form">
             <Link
-              key={location.href}
+              key={searchInput}
               to={{
-                pathname: `/search/?item=${searchInput}`,
+                pathname: `/search/${searchInput}`,
               }}
-              onClick={refreshSearch}
+              onClick={() => refreshSearch(searchInput)}
             >
-              <button id="search-button" type="submit" onSubmit={refreshSearch}>
+              <button id="search-button" type="submit">
                 <img
                   src="https://img.icons8.com/material/48/000000/search--v1.png"
                   loading="lazy"

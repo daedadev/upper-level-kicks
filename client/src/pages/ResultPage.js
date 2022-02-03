@@ -3,9 +3,9 @@ import ResultPageItem from "../components/ResultPageItem";
 import { Link } from "react-router-dom";
 
 const SearchResultPage = () => {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const shoeSearched = urlParams.get("item");
+  const mainString = window.location.href.split("?")[0];
+
+  const shoeSearched = mainString.substring(mainString.lastIndexOf("/") + 1);
 
   const [searchData, setSearchData] = useState();
 

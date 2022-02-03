@@ -4,7 +4,7 @@ import MostPopular from "../components/MostPopular";
 import Carousel from "react-elastic-carousel";
 import RandomShoe from "../components/RandomShoe";
 import LoadingSneaker from "../components/LoadingComponents/SneakerItem";
-import LoadingShoeInfo from "../components/LoadingComponents/SneakerInfo";
+import LoadingPopularSneaker from "../components/LoadingComponents/PopularSneaker";
 import ShoeInfo from "../components/ShoeInfo";
 
 const MainPage = () => {
@@ -59,7 +59,11 @@ const MainPage = () => {
 
   return (
     <section className="main-holder">
-      {isLoadingMain ? <ShoeInfo shoe={sneakers[0]} /> : <LoadingShoeInfo />}
+      {isLoadingMain ? (
+        <MostPopular shoe={sneakers[0]} />
+      ) : (
+        <LoadingPopularSneaker />
+      )}
 
       <article id="carousel-holder">
         <Carousel breakPoints={breakPoints} itemsToScroll={1}>
