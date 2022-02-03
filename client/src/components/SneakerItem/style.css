@@ -9,6 +9,10 @@
   padding: 10px;
 }
 
+.main-sneaker-large-holder a {
+  color: black;
+}
+
 .main-sneaker-holder {
   display: flex;
   flex-direction: column;

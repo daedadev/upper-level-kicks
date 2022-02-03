@@ -1,11 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import LoadingInlineSearch from "../LoadingComponents/InlineSearchResult";
 import "./style.css";
 
 export default function Header() {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showInlineSearch, setShowInlineSearch] = useState("search-off");
+
+  const [loaded, setLoaded] = useState(false);
 
   function refreshSearch(searchInput) {
     setSearchInput("");
@@ -19,6 +22,7 @@ export default function Header() {
     }
 
     try {
+      setLoaded(false);
       await fetch(`http://localhost:3001/api/search/${input}`, {
         method: `GET`,
         headers: {
@@ -31,6 +35,7 @@ export default function Header() {
           console.log(info);
           console.log("Response is " + info.ok);
         });
+      setLoaded(true);
     } catch (err) {
       console.log(err);
     }
@@ -46,6 +51,32 @@ export default function Header() {
 
     runSearch(searchInput);
   }, [searchInput]);
+
+  var loadedResults;
+
+  if (searchResults) {
+    loadedResults = searchResults.map((item) => {
+      return (
+        <Link
+          to={{
+            pathname: `/result/${item.styleID}?make=${item.silhoutte}`,
+          }}
+          onClick={() => newShoeSearched(item.styleID, item.make)}
+        >
+          <div className="inline-search-item-holder">
+            <img src={item.thumbnail} loading="lazy"></img>
+            <h1>{item.shoeName}</h1>
+          </div>
+        </Link>
+      );
+    });
+  }
+
+  var theArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+  const loadingResults = theArray.map((item) => {
+    return <LoadingInlineSearch />;
+  });
 
   return (
     <header id="header">
@@ -92,21 +123,7 @@ export default function Header() {
             ></input>
           </form>
           <section id={showInlineSearch} className="inline-search-holder">
-            {searchResults.map((item) => {
-              return (
-                <Link
-                  to={{
-                    pathname: `/result/${item.styleID}?make=${item.silhoutte}`,
-                  }}
-                  onClick={() => newShoeSearched(item.styleID, item.make)}
-                >
-                  <div className="inline-search-item-holder">
-                    <img src={item.thumbnail} loading="lazy"></img>
-                    <h1>{item.shoeName}</h1>
-                  </div>
-                </Link>
-              );
-            })}
+            {loaded ? loadedResults : loadingResults}
           </section>
         </article>
       </section>

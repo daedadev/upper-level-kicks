@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import ResultPageItem from "../components/ResultPageItem";
+import LoadingResultItem from "../components/LoadingComponents/ResultItem";
 import { Link } from "react-router-dom";
 
 const SearchResultPage = () => {
@@ -9,8 +10,12 @@ const SearchResultPage = () => {
 
   const [searchData, setSearchData] = useState();
 
-  useEffect(() => {
-    fetch(`http://localhost:3001/api/search/${shoeSearched}`, {
+  const [loaded, setLoaded] = useState(false);
+
+  async function getItems() {
+    setLoaded(false);
+
+    await fetch(`http://localhost:3001/api/search/${shoeSearched}`, {
       method: `GET`,
       headers: {
         "Content-Type": "application/json",
@@ -21,22 +26,35 @@ const SearchResultPage = () => {
         setSearchData(data);
         console.log(data);
       });
+    setLoaded(true);
+  }
+
+  useEffect(() => {
+    getItems();
   }, [shoeSearched]);
 
+  var loadedItem;
+
   if (searchData) {
-    return (
-      <section className="main-holder">
-        <h1>Search Results For {shoeSearched}</h1>
-        <div className="result-large-item-holder">
-          {searchData.map((item) => {
-            return <ResultPageItem key={item} shoe={item} />;
-          })}
-        </div>
-      </section>
-    );
-  } else {
-    return <section className="main-holder"></section>;
+    loadedItem = searchData.map((item) => {
+      return <ResultPageItem key={item.styleID} shoe={item} />;
+    });
   }
+
+  var loadArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+  const loadingItem = loadArray.map((item) => {
+    return <LoadingResultItem />;
+  });
+
+  return (
+    <section className="main-holder">
+      <h1>Search Results For {loaded ? shoeSearched : "Loading"}</h1>
+      <div className="result-large-item-holder">
+        {loaded ? loadedItem : loadingItem}
+      </div>
+    </section>
+  );
 };
 
 export default SearchResultPage;

@@ -8,6 +8,10 @@
   margin-bottom: 40px;
 }
 
+#header a {
+  color: black;
+}
+
 #header-holder {
   display: flex;
   flex-direction: column;

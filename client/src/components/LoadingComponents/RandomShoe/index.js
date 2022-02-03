@@ -5,17 +5,17 @@ export default function LoadingRandomShoe() {
   return (
     <section className="random-sneaker-holder">
       <article className="random-sneaker-left">
-        <h3>Shoe Name</h3>
+        <h3>Loading Name</h3>
         <article className="random-sneaker-image">
           <img src={stockImage} loading="lazy"></img>
         </article>
-        <h3>Retail Price: $Price</h3>
+        <h3>Retail Price: Loading Price</h3>
       </article>
       <article className="random-sneaker-right">
-        <p>Description</p>
+        <p>Loading Description</p>
 
-        <h2>Lowest Resell Price: $Price</h2>
-        <h2>Company</h2>
+        <h2>Loading Price</h2>
+        <h2>Loading Company</h2>
         <button>Random Shoe</button>
         <button>Shoe Info</button>
       </article>

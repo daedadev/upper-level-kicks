@@ -9,27 +9,27 @@ export default function LoadingShoeInfo() {
           <img src={stockImage} loading="lazy"></img>
         </article>
         <article className="shoeinfo-right">
-          <h1>Shoe Name</h1>
-          <p>Shoe Description</p>
+          <h1>Loading Name</h1>
+          <p>Loading Description</p>
           <article className="shoeinfo-price-holder">
             <button className="shoeinfo-price">
               <h1>StockX</h1>
-              <h2>Price</h2>
+              <h2>Loading Price</h2>
             </button>
             <button className="shoeinfo-price">
               <h1>GOAT</h1>
-              <h2>Price</h2>
+              <h2>Loading Price</h2>
             </button>
             <button className="shoeinfo-price">
               <h1>FlightClub</h1>
-              <h2>Price</h2>
+              <h2>Loading Price</h2>
             </button>
           </article>
         </article>
       </section>
       <section className="shoeinfo-bottom-holder">
         <article id="bottom-info-holder">
-          <h1>Colorway</h1>
+          <h1>Loading Colorway</h1>
         </article>
       </section>
     </section>
