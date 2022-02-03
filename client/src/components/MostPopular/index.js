@@ -6,7 +6,7 @@ export default function MostPopular({ shoe }) {
     return (
       <section id="mostpopular-holder">
         <article id="mostpopular-left">
-          <img src={shoe.thumbnail}></img>
+          <img src={shoe.thumbnail} loading="lazy"></img>
         </article>
         <article id="mostpopular-right">
           <h1>{shoe.shoeName}</h1>

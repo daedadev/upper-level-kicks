@@ -21,11 +21,7 @@ export default function Sneaker(theSneaker, changeState) {
         key={location.href}
         onClick={changeState}
         to={{
-          pathname: `/result/?styleID=${sneaker.styleID}&make=${sneaker.silhoutte}`,
-          state: {
-            styleID: sneaker.styleID,
-            itemSilhouette: sneaker.silhouette,
-          },
+          pathname: `/result/${sneaker.styleID}?make=${sneaker.silhoutte}`,
         }}
       >
         <section className="main-sneaker-holder">
@@ -34,7 +30,7 @@ export default function Sneaker(theSneaker, changeState) {
           </article>
           <article className="main-sneaker-bottom">
             <article className="main-sneaker-image">
-              <img src={thumbnail}></img>
+              <img src={thumbnail} loading="lazy"></img>
             </article>
           </article>
         </section>

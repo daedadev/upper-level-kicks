@@ -1,0 +1,30 @@
+.result-large-item-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 1400px;
+}
+.result-large-item-holder a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: black;
+}
+
+.result-item-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: black;
+}
+
+.result-item-holder img {
+  width: 200px;
+}

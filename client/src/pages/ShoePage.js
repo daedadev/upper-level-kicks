@@ -1,16 +1,18 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Sneaker from "../components/SneakerItem";
 import Carousel from "react-elastic-carousel";
 import ShoeInfo from "../components/ShoeInfo";
-import ShoeContext from "../context/ShoeContext";
 
 const ShoePage = () => {
-  const shoeCtx = useContext(ShoeContext);
-
   const queryString = window.location.search;
+  const mainString = window.location.href.split("?")[0];
   const urlParams = new URLSearchParams(queryString);
-  const styleID = urlParams.get("styleID");
+  const lastItem = mainString.substring(mainString.lastIndexOf("/") + 1);
+  const styleID = lastItem;
   const make = urlParams.get("make");
+
+  const [shoeInfo, setShoeInfo] = useState();
+  const [relatedSearch, setRelatedSearch] = useState();
 
   async function getShoeInfo() {
     try {
@@ -22,7 +24,7 @@ const ShoePage = () => {
       })
         .then((data) => data.json())
         .then((data) => {
-          shoeCtx.setShoeContext(data);
+          setShoeInfo(data);
           console.log(data);
         });
       await fetch(`http://localhost:3001/api/search/${make}`, {
@@ -33,7 +35,7 @@ const ShoePage = () => {
       })
         .then((info) => info.json())
         .then((info) => {
-          shoeCtx.setRelatedShoeContext(info);
+          setRelatedSearch(info);
           console.log(info);
         });
     } catch (err) {
@@ -52,13 +54,13 @@ const ShoePage = () => {
     { width: 1200, itemsToShow: 4 },
   ];
 
-  if (shoeCtx.relatedShoeContext) {
+  if (relatedSearch) {
     return (
       <section className="main-holder">
-        <ShoeInfo shoe={shoeCtx.shoeContext} />
+        <ShoeInfo shoe={shoeInfo} />
         <article id="carousel-holder">
           <Carousel breakPoints={breakPoints} itemsToScroll={1}>
-            {shoeCtx.relatedShoeContext.map((item) => {
+            {relatedSearch.map((item) => {
               return <Sneaker theSneaker={item} key={item.styleID} />;
             })}
           </Carousel>

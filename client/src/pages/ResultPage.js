@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import ResultPageItem from "../components/ResultPageItem";
+import { Link } from "react-router-dom";
 
 const SearchResultPage = () => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
+  const shoeSearched = urlParams.get("item");
 
   const [searchData, setSearchData] = useState();
 
   useEffect(() => {
-    const shoeSearched = urlParams.get("item");
-
     fetch(`http://localhost:3001/api/search/${shoeSearched}`, {
       method: `GET`,
       headers: {
@@ -20,18 +21,17 @@ const SearchResultPage = () => {
         setSearchData(data);
         console.log(data);
       });
-  }, []);
+  }, [shoeSearched]);
 
   if (searchData) {
     return (
       <section className="main-holder">
-        {searchData.map((item) => {
-          return (
-            <div>
-              <h1>{item.shoeName}</h1>
-            </div>
-          );
-        })}
+        <h1>Search Results For {shoeSearched}</h1>
+        <div className="result-large-item-holder">
+          {searchData.map((item) => {
+            return <ResultPageItem key={item} shoe={item} />;
+          })}
+        </div>
       </section>
     );
   } else {

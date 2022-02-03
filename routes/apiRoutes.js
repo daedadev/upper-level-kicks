@@ -7,7 +7,6 @@ router.get("/popular", async (req, res) => {
   try {
     sneaks.getMostPopular(11, function (err, products) {
       res.send(products);
-      res.send(err);
     });
   } catch (err) {
     res.send(err);
@@ -20,10 +19,9 @@ router.get("/search/:search", async (req, res) => {
   try {
     sneaks.getProducts(req.params.search, 20, function (err, products) {
       res.send(products);
-      res.send(err);
     });
   } catch (err) {
-    res.send(err);
+    res.send("There has been an error");
   }
 });
 
@@ -32,7 +30,6 @@ router.get("/product/:style", async (req, res) => {
   try {
     sneaks.getProductPrices(req.params.style, function (err, products) {
       res.send(products);
-      res.send(err);
     });
   } catch (err) {
     res.send(err);

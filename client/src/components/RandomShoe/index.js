@@ -65,7 +65,7 @@ export default function RandomShoe() {
       <article className="random-sneaker-left">
         <h3>{randomShoe.shoeName}</h3>
         <article className="random-sneaker-image">
-          <img src={randomShoe.thumbnail}></img>
+          <img src={randomShoe.thumbnail} loading="lazy"></img>
         </article>
         <h3>Retail Price: ${randomShoe.retailPrice}</h3>
       </article>
