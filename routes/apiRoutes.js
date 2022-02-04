@@ -16,24 +16,27 @@ router.get("/popular", async (req, res) => {
 // Return search results /api/search/{search}
 // Also used for random search
 router.get("/search/:search", async (req, res) => {
-  try {
-    sneaks.getProducts(req.params.search, 20, function (err, products) {
+  sneaks.getProducts(req.params.search, 20, function (err, products) {
+    if (products !== null) {
       res.send(products);
-    });
-  } catch (err) {
-    res.send("There has been an error");
-  }
+    }
+
+    if (products === null) {
+      console.log(products);
+    }
+  });
 });
 
 // Get specific shoe info /api/product/{style}
 router.get("/product/:style", async (req, res) => {
-  try {
-    sneaks.getProductPrices(req.params.style, function (err, products) {
-      res.send(products);
-    });
-  } catch (err) {
-    res.send(err);
+  let search = req.params.style;
+  if (req.params.style.includes("+")) {
+    var newSearch = search.replace("+", "/");
+    search = newSearch;
   }
+  sneaks.getProductPrices(search, function (err, products) {
+    res.send(products);
+  });
 });
 
 module.exports = router;

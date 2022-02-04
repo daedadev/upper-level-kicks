@@ -16,6 +16,12 @@ export default function Header() {
     window.location.href = `/search/${searchInput}`;
   }
 
+  function reloadPage(searchInput) {
+    setSearchInput("");
+    setSearchResults([]);
+    window.location.href = `/result/${item.shoeName}?style=${item.styleID}&make=${item.silhoutte}`;
+  }
+
   async function runSearch(input) {
     if (searchInput === "") {
       return;
@@ -23,7 +29,7 @@ export default function Header() {
 
     try {
       setLoaded(false);
-      await fetch(`http://localhost:3001/api/search/${input}`, {
+      fetch(`http://localhost:3001/api/search/${input}`, {
         method: `GET`,
         headers: {
           "Content-Type": "application/json",
@@ -31,11 +37,13 @@ export default function Header() {
       })
         .then((info) => info.json())
         .then((info) => {
+          setLoaded(true);
           setSearchResults(info);
           console.log(info);
-          console.log("Response is " + info.ok);
+        })
+        .catch((err) => {
+          console.log(err);
         });
-      setLoaded(true);
     } catch (err) {
       console.log(err);
     }
@@ -58,10 +66,10 @@ export default function Header() {
     loadedResults = searchResults.map((item) => {
       return (
         <Link
+          key={item.styleID}
           to={{
-            pathname: `/result/${item.styleID}?make=${item.silhoutte}`,
+            pathname: `/result/${item.shoeName}?style=${item.styleID}&make=${item.silhoutte}`,
           }}
-          onClick={() => newShoeSearched(item.styleID, item.make)}
         >
           <div className="inline-search-item-holder">
             <img src={item.thumbnail} loading="lazy"></img>

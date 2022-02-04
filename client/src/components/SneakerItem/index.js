@@ -21,7 +21,7 @@ export default function Sneaker(theSneaker, changeState) {
         key={location.href}
         onClick={changeState}
         to={{
-          pathname: `/result/${sneaker.styleID}?make=${sneaker.silhoutte}`,
+          pathname: `/result/${sneaker.shoeName}?style=${sneaker.styleID}&make=${sneaker.silhoutte}`,
         }}
       >
         <section className="main-sneaker-holder">

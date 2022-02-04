@@ -9,18 +9,22 @@ const ShoePage = () => {
   const queryString = window.location.search;
   const mainString = window.location.href.split("?")[0];
   const urlParams = new URLSearchParams(queryString);
-  const lastItem = mainString.substring(mainString.lastIndexOf("/") + 1);
-  const styleID = lastItem;
+  let style = urlParams.get("style");
   const make = urlParams.get("make");
 
   const [shoeInfo, setShoeInfo] = useState();
   const [relatedSearch, setRelatedSearch] = useState();
-  const [isLoadingRelated, setIsLoadingRelated] = useState();
-  const [isLoadingMain, setIsLoadingMain] = useState();
+  const [isLoadingRelated, setIsLoadingRelated] = useState(false);
+  const [isLoadingMain, setIsLoadingMain] = useState(false);
 
   async function getShoeInfo() {
     try {
-      await fetch(`http://localhost:3001/api/product/${styleID}`, {
+      if (style.includes("/")) {
+        var newStyle = style.replace("/", "+");
+        style = newStyle;
+      }
+
+      await fetch(`http://localhost:3001/api/product/${style}`, {
         method: `GET`,
         headers: {
           "Content-Type": "application/json",
@@ -32,6 +36,7 @@ const ShoePage = () => {
           console.log(data);
         });
       setIsLoadingMain(true);
+
       await fetch(`http://localhost:3001/api/search/${make}`, {
         method: `GET`,
         headers: {

@@ -6,8 +6,6 @@ export default function ShoeInfo({ shoe }) {
   const [shoeSizeList, setShoeSizeList] = useState([]);
 
   var shoeSizes;
-  var sizeArray = [];
-  var thumbnail;
 
   useEffect(() => {
     getSizesLoaded();
