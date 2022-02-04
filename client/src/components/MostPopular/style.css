@@ -1,3 +1,8 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+
 #mostpopular-holder {
   display: flex;
   flex-direction: row;
@@ -50,4 +55,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#mostpopular-holder:hover {
+  border-color: #0076a5;
 }

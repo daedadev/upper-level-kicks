@@ -7,10 +7,16 @@
   border-radius: 5px;
   border-width: 2px;
   padding: 10px;
+  transition: 0.2s;
 }
 
 .main-sneaker-large-holder a {
   color: black;
+}
+
+.main-sneaker-large-holder:hover {
+  border-color: #0076a5;
+  border-radius: 10px;
 }
 
 .main-sneaker-holder {

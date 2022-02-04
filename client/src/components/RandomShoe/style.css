@@ -47,3 +47,23 @@
 .random-sneaker-right p {
   text-align: center;
 }
+
+.random-sneaker-right button {
+  width: 120px;
+  margin-bottom: 10px;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.random-sneaker-right button:hover {
+  border-radius: 20px;
+  background-color: #209fd2;
+  border-color: aliceblue;
+  color: aliceblue;
+  cursor: pointer;
+}
