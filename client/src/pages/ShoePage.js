@@ -24,7 +24,7 @@ const ShoePage = () => {
         style = newStyle;
       }
 
-      await fetch(`http://localhost:3001/api/product/${style}`, {
+      await fetch(`/api/product/${style}`, {
         method: `GET`,
         headers: {
           "Content-Type": "application/json",
@@ -37,7 +37,7 @@ const ShoePage = () => {
         });
       setIsLoadingMain(true);
 
-      await fetch(`http://localhost:3001/api/search/${make}`, {
+      await fetch(`/api/search/${make}`, {
         method: `GET`,
         headers: {
           "Content-Type": "application/json",

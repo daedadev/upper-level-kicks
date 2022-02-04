@@ -14,7 +14,7 @@ const MainPage = () => {
 
   async function getPopular() {
     try {
-      await fetch("http://localhost:3001/api/popular", {
+      await fetch("/api/popular", {
         method: `GET`,
         headers: {
           "Content-Type": "application/json",

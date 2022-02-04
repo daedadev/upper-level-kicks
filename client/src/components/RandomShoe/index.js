@@ -23,7 +23,7 @@ export default function RandomShoe() {
 
     try {
       setLoaded(false);
-      await fetch(`http://localhost:3001/api/search/${randomSearch}`, {
+      await fetch(`/api/search/${randomSearch}`, {
         method: `GET`,
         headers: {
           "Content-Type": "application/json",

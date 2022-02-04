@@ -30,7 +30,7 @@ export default function Header() {
 
     try {
       setLoaded(false);
-      fetch(`http://localhost:3001/api/search/${input}`, {
+      fetch(`/api/search/${input}`, {
         method: `GET`,
         headers: {
           "Content-Type": "application/json",

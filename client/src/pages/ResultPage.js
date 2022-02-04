@@ -15,7 +15,7 @@ const SearchResultPage = () => {
   async function getItems() {
     setLoaded(false);
 
-    await fetch(`http://localhost:3001/api/search/${shoeSearched}`, {
+    await fetch(`/api/search/${shoeSearched}`, {
       method: `GET`,
       headers: {
         "Content-Type": "application/json",
