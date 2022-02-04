@@ -16,10 +16,11 @@ export default function Header() {
     window.location.href = `/search/${searchInput}`;
   }
 
-  function reloadPage(searchInput) {
+  function reloadPage() {
     setSearchInput("");
     setSearchResults([]);
     window.location.href = `/result/${item.shoeName}?style=${item.styleID}&make=${item.silhoutte}`;
+    window.location.reload();
   }
 
   async function runSearch(input) {
@@ -70,6 +71,7 @@ export default function Header() {
           to={{
             pathname: `/result/${item.shoeName}?style=${item.styleID}&make=${item.silhoutte}`,
           }}
+          onClick={reloadPage}
         >
           <div className="inline-search-item-holder">
             <img src={item.thumbnail} loading="lazy"></img>

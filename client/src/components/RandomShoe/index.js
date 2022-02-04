@@ -75,7 +75,7 @@ export default function RandomShoe() {
           <h3>Retail Price: ${randomShoe.retailPrice}</h3>
         </article>
         <article className="random-sneaker-right">
-          <p>{randomShoe.description}</p>
+          <p className="random-description">{randomShoe.description}</p>
 
           <h2>Lowest Resell Price: ${randomLowPrice[0]}</h2>
           <h2>{randomLowPrice[1]}</h2>

@@ -3,7 +3,10 @@
 /* Red - color="#f20000" */
 /* Orangish Red - color="#ff3c00" */
 /* Green - color="#37d334" */
-
+* {
+  padding: 0;
+  margin: 0;
+}
 html,
 body {
   padding: 0;
@@ -22,4 +25,22 @@ body {
   width: 90%;
   max-width: 1400px;
   padding-top: 40px;
+}
+
+@media screen and (max-width: 1400px) {
+}
+
+@media screen and (max-width: 1000px) {
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 590px) {
+}
+
+@media screen and (max-width: 420px) {
 }

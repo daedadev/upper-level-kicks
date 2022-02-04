@@ -49,7 +49,11 @@ const SearchResultPage = () => {
 
   return (
     <section className="main-holder">
-      <h1>Search Results For {loaded ? shoeSearched : "Loading"}</h1>
+      <h1 className="search-results-text">
+        {loaded
+          ? `Search Results For ${shoeSearched}`
+          : "Loading Search Results"}
+      </h1>
       <div className="result-large-item-holder">
         {loaded ? loadedItem : loadingItem}
       </div>

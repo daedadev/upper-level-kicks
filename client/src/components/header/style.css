@@ -1,4 +1,4 @@
-#header {
+header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +10,7 @@
 
 #header nav a {
   color: white;
+  padding: 20px;
 }
 
 #header h3 {
@@ -21,7 +22,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 90%;
+  width: 80%;
   max-width: 1400px;
   padding-bottom: 20px;
 }
@@ -43,7 +44,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 30%;
+  width: 40%;
 }
 
 #header-top-holder nav a {
@@ -107,10 +108,11 @@
 /* Inline search holder ---------------- */
 
 .inline-search-holder {
+  z-index: 1;
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 102px;
+  top: 99px;
   align-items: flex-start;
   background-color: white;
   width: 1000px;
@@ -152,4 +154,150 @@
 
 #search-on {
   display: flex;
+}
+
+@media screen and (max-width: 1400px) {
+  #header-holder {
+    width: 800px;
+  }
+  #header-top-holder {
+    width: 800px;
+  }
+
+  #header-top-holder nav {
+    width: 50%;
+  }
+
+  #search-form {
+    width: 800px;
+  }
+  .inline-search-holder {
+    top: 99px;
+    width: 800px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  #header-holder {
+    width: 650px;
+  }
+  #header-top-holder {
+    flex-direction: column;
+    width: 650px;
+    padding-top: 40px;
+  }
+
+  #header-top-holder nav {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  #search-form {
+    width: 650px;
+  }
+  .inline-search-holder {
+    top: 161px;
+    width: 650px;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #header-holder {
+    width: 550px;
+  }
+  #header-top-holder {
+    flex-direction: column;
+    width: 550px;
+    padding-top: 40px;
+  }
+
+  #header-top-holder nav {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  #search-form {
+    width: 550px;
+  }
+  .inline-search-holder {
+    top: 161px;
+    width: 550px;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  #header-holder {
+    width: 400px;
+  }
+  #header-top-holder {
+    flex-direction: column;
+    width: 400px;
+    padding-top: 40px;
+  }
+
+  #header-top-holder nav {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  #search-form {
+    width: 400px;
+  }
+  .inline-search-holder {
+    top: 161px;
+    width: 400px;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  #header-holder {
+    width: 300px;
+  }
+  #header-top-holder {
+    flex-direction: column;
+    width: 300px;
+    padding-top: 40px;
+  }
+
+  #header-top-holder nav {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  #search-form {
+    width: 300px;
+  }
+  .inline-search-holder {
+    top: 179px;
+    width: 300px;
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  #header-holder {
+    width: 250px;
+  }
+  #header-top-holder {
+    flex-direction: column;
+    width: 250px;
+    padding-top: 40px;
+  }
+
+  #header-top-holder nav {
+    justify-content: space-evenly;
+    width: 100%;
+  }
+
+  #search-form {
+    width: 250px;
+  }
+  .inline-search-holder {
+    top: 179px;
+    width: 250px;
+    height: 500px;
+  }
 }

@@ -3,14 +3,14 @@ export default function LoadingPopularSneaker() {
     "https://stockx-assets.imgix.net/media/Product-Placeholder-Default-20210415.jpg?fit=fill&bg=FFFFFF&auto=compress&q=90&dpr=1&trim=color&w=480&h=320&fm=avif";
 
   return (
-    <section id="mostpopular-holder">
-      <article id="mostpopular-left">
+    <section className="mostpopular-holder">
+      <article className="mostpopular-left">
         <img src={stockImage} loading="lazy"></img>
       </article>
-      <article id="mostpopular-right">
+      <article className="mostpopular-right">
         <h1>Loading Name</h1>
         <p>Loading Description</p>
-        <article id="mostpopular-price-holder">
+        <article className="mostpopular-price-holder">
           <div className="mostpopular-price">
             <h1>StockX</h1>
             <h2>Loading</h2>

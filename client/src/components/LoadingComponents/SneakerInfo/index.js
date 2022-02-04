@@ -7,29 +7,29 @@ export default function LoadingShoeInfo() {
       <section className="shoeinfo-top-holder">
         <article className="shoeinfo-left">
           <img src={stockImage} loading="lazy"></img>
-        </article>
-        <article className="shoeinfo-right">
-          <h1>Loading Name</h1>
-          <p>Loading Description</p>
-          <article className="shoeinfo-price-holder">
-            <button className="shoeinfo-price">
-              <h1>StockX</h1>
-              <h2>Loading Price</h2>
-            </button>
-            <button className="shoeinfo-price">
-              <h1>GOAT</h1>
-              <h2>Loading Price</h2>
-            </button>
-            <button className="shoeinfo-price">
-              <h1>FlightClub</h1>
-              <h2>Loading Price</h2>
-            </button>
+          <article id="bottom-info-holder">
+            <h1>colorway</h1>
           </article>
         </article>
       </section>
       <section className="shoeinfo-bottom-holder">
-        <article id="bottom-info-holder">
-          <h1>Loading Colorway</h1>
+        <article className="shoeinfo-right">
+          <h1 id="shoeinfo-right-h1">shoe name</h1>
+          <p>description</p>
+          <article className="shoeinfo-price-holder">
+            <button className="shoeinfo-price">
+              <h1>company</h1>
+              <h2>price</h2>
+            </button>
+            <button className="shoeinfo-price">
+              <h1>company</h1>
+              <h2>price</h2>
+            </button>
+            <button className="shoeinfo-price">
+              <h1>company</h1>
+              <h2>price</h2>
+            </button>
+          </article>
         </article>
       </section>
     </section>

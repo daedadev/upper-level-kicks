@@ -6,18 +6,19 @@ export default function MostPopular({ shoe }) {
   if (shoe) {
     return (
       <Link
+        className="mostpopular-holder-a"
         to={{
-          pathname: `/result/${shoe.styleID}?make=${shoe.silhoutte}`,
+          pathname: `/result/${shoe.shoeName}?style=${shoe.styleID}&make=${shoe.silhoutte}`,
         }}
       >
-        <section id="mostpopular-holder">
-          <article id="mostpopular-left">
+        <section className="mostpopular-holder">
+          <article className="mostpopular-left">
             <img src={shoe.thumbnail} loading="lazy"></img>
           </article>
-          <article id="mostpopular-right">
+          <article className="mostpopular-right">
             <h1>{shoe.shoeName}</h1>
             <p>{shoe.description}</p>
-            <article id="mostpopular-price-holder">
+            <article className="mostpopular-price-holder">
               <div className="mostpopular-price">
                 <h1>StockX</h1>
                 <h2>${shoe.lowestResellPrice.stockX}</h2>

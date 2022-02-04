@@ -76,9 +76,14 @@ export default function ShoeInfo({ shoe }) {
         <section className="shoeinfo-top-holder">
           <article className="shoeinfo-left">
             <img src={shoe.thumbnail} loading="lazy"></img>
+            <article className="bottom-info-holder">
+              <h1>{shoe.colorway}</h1>
+            </article>
           </article>
+        </section>
+        <section className="shoeinfo-bottom-holder">
           <article className="shoeinfo-right">
-            <h1>{shoe.shoeName}</h1>
+            <h1 className="shoeinfo-right-h1">{shoe.shoeName}</h1>
             <p>{shoe.description}</p>
             <article className="shoeinfo-price-holder">
               <button
@@ -104,12 +109,7 @@ export default function ShoeInfo({ shoe }) {
               </button>
             </article>
           </article>
-        </section>
-        <section className="shoeinfo-bottom-holder">
-          <article id="bottom-info-holder">
-            <h1>{shoe.colorway}</h1>
-          </article>
-          <ul id="size-item-holder">
+          <ul className="size-item-holder">
             {shoeSizeList.map((item) => {
               return (
                 <li className="size-item">
