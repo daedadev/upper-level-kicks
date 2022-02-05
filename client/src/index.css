@@ -25,6 +25,10 @@ body {
   min-height: 100vh;
 }
 
+.loading-image {
+  opacity: 0.3;
+}
+
 /* Carousel Styling */
 
 #carousel-holder {

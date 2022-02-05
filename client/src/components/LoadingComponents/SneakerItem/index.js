@@ -1,6 +1,6 @@
-import "./style.css";
-
 export default function LoadingSneaker() {
+  var images = ["/DunkPlaceHolder.PNG", "/JordanPlaceHolder.PNG"];
+  var image = images[Math.floor(Math.random() * images.length)];
   return (
     <div className="main-sneaker-large-holder">
       <a>
@@ -10,7 +10,7 @@ export default function LoadingSneaker() {
           </article>
           <article className="main-sneaker-bottom">
             <article className="main-sneaker-image">
-              <img src="/PlaceHolderImage.PNG" loading="lazy"></img>
+              <img className="loading-image" src={image} loading="lazy"></img>
             </article>
           </article>
         </section>

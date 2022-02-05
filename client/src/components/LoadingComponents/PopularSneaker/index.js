@@ -1,8 +1,10 @@
 export default function LoadingPopularSneaker() {
+  var images = ["/DunkPlaceHolder.PNG", "/JordanPlaceHolder.PNG"];
+  var image = images[Math.floor(Math.random() * images.length)];
   return (
     <section className="mostpopular-holder">
       <article className="mostpopular-left">
-        <img src="/PlaceHolderImage.PNG" loading="lazy"></img>
+        <img className="loading-image" src={image} loading="lazy"></img>
       </article>
       <article className="mostpopular-right">
         <h1>Loading Name</h1>

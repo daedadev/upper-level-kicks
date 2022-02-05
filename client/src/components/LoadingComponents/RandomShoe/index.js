@@ -1,10 +1,12 @@
 export default function LoadingRandomShoe() {
+  var images = ["/DunkPlaceHolder.PNG", "/JordanPlaceHolder.PNG"];
+  var image = images[Math.floor(Math.random() * images.length)];
   return (
     <section className="random-sneaker-holder">
       <article className="random-sneaker-left">
         <h3>Loading Name</h3>
         <article className="random-sneaker-image">
-          <img src="/PlaceHolderImage.PNG" loading="lazy"></img>
+          <img className="loading-image" src={image} loading="lazy"></img>
         </article>
         <h3>Retail Price: Loading Price</h3>
       </article>

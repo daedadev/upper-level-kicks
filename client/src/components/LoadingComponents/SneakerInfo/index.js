@@ -1,9 +1,11 @@
 export default function LoadingShoeInfo() {
+  var images = ["/DunkPlaceHolder.PNG", "/JordanPlaceHolder.PNG"];
+  var image = images[Math.floor(Math.random() * images.length)];
   return (
     <section className="shoeinfo-holder">
       <section className="shoeinfo-top-holder">
         <article className="shoeinfo-left">
-          <img src="/PlaceHolderImage.PNG" loading="lazy"></img>
+          <img className="loading-image" src={image} loading="lazy"></img>
           <article id="bottom-info-holder">
             <h1>colorway</h1>
           </article>

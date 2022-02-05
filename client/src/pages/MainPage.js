@@ -39,7 +39,7 @@ const MainPage = () => {
     { width: 1, itemsToShow: 1, itemsToScroll: 1 },
     { width: 500, itemsToShow: 2, itemsToScroll: 1 },
     { width: 768, itemsToShow: 3, itemsToScroll: 1 },
-    { width: 1200, itemsToShow: 4 },
+    { width: 1200, itemsToShow: 4, itemsToScroll: 4 },
   ];
 
   var arrayLoop = [];
