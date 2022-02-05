@@ -19,7 +19,7 @@ export default function Header() {
   function reloadPage() {
     setSearchInput("");
     setSearchResults([]);
-    window.location.href = `/result/${item.shoeName}?style=${item.styleID}&make=${item.silhoutte}`;
+    window.location.href = `/result/${item.brand}?style=${item.styleID}&make=${item.silhoutte}`;
     window.location.reload();
   }
 
@@ -69,7 +69,7 @@ export default function Header() {
         <Link
           key={item.styleID}
           to={{
-            pathname: `/result/${item.shoeName}?style=${item.styleID}&make=${item.silhoutte}`,
+            pathname: `/result/${item.brand}?style=${item.styleID}&make=${item.silhoutte}`,
           }}
           onClick={reloadPage}
         >

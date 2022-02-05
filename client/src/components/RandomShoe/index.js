@@ -82,7 +82,7 @@ export default function RandomShoe() {
           <button onClick={returnRandom}>Random Shoe</button>
           <Link
             to={{
-              pathname: `/result/${randomShoe.shoeName}?style=${randomShoe.styleID}&make=${randomShoe.silhoutte}`,
+              pathname: `/result/${randomShoe.brand}?style=${randomShoe.styleID}&make=${randomShoe.silhoutte}`,
             }}
           >
             <button>Shoe Info</button>
