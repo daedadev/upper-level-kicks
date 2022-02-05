@@ -59,9 +59,9 @@ const ShoePage = () => {
   }, []);
 
   const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 500, itemsToShow: 2 },
-    { width: 768, itemsToShow: 3 },
+    { width: 400, itemsToShow: 1, itemsToScroll: 1 },
+    { width: 500, itemsToShow: 3, itemsToScroll: 1 },
+    { width: 768, itemsToShow: 4, itemsToScroll: 1 },
     { width: 1200, itemsToShow: 4 },
   ];
 
@@ -82,7 +82,7 @@ const ShoePage = () => {
     <section className="main-holder">
       {isLoadingMain ? <ShoeInfo shoe={shoeInfo} /> : <LoadingShoeInfo />}
       <article id="carousel-holder">
-        <Carousel breakPoints={breakPoints} itemsToScroll={1}>
+        <Carousel breakPoints={breakPoints} itemsToScroll={4}>
           {isLoadingRelated ? loadedShoe : loadingShoe}
         </Carousel>
       </article>

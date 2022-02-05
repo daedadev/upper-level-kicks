@@ -67,3 +67,26 @@
   justify-content: space-between;
   width: 100%;
 }
+
+@media screen and (max-width: 1400px) {
+}
+
+@media screen and (max-width: 1000px) {
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+  .main-sneaker-large-holder {
+    border-width: 1px;
+    height: 300px;
+    width: 85%;
+  }
+}
+
+@media screen and (max-width: 590px) {
+}
+
+@media screen and (max-width: 420px) {
+}
