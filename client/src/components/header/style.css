@@ -200,6 +200,9 @@ header {
     width: 650px;
     height: 500px;
   }
+  .inline-search-holder h1 {
+    text-align: right;
+  }
 }
 
 @media screen and (max-width: 768px) {

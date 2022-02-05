@@ -105,9 +105,10 @@
 @media screen and (max-width: 768px) {
   .random-sneaker-holder {
     flex-direction: column;
-
+    width: 100%;
     align-items: center;
     justify-content: center;
+    margin-right: 0;
   }
   .random-sneaker-left {
     align-items: center;
