@@ -4,8 +4,8 @@
 
 This is a personal pet project of mine that utilizes the Sneaks-API which contains data that has been scraped from StockX/GOAT/FlightClub into one single database. As a sneaker enthusiast myself seeing this data I challenged myself to make a website that mimicked StockX but housed a variety of prices. A hub of resell websites provided by that API.
 
-[Sneaks-API](https://github.com/druv5319/Sneaks-API)
-[NPM Package](https://www.npmjs.com/package/sneaks-api)
+[Sneaks-API](https://github.com/druv5319/Sneaks-API)\
+[NPM Package](https://www.npmjs.com/package/sneaks-api)\
 Sneaks-API Creator: [druv5319](https://github.com/druv5319)
 
 I also wanted to create a place where shoe lovers can save, track, and view shoes that they own to see and compare prices.
