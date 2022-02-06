@@ -29,6 +29,8 @@
     "cors": "^2.8.5",
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
+    "firebase": "^9.6.6",
+    "firebaseui": "^6.0.0",
     "mysql2": "^2.3.3",
     "node": "^17.4.0",
     "sequelize": "^6.14.0",

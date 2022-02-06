@@ -1,38 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { auth } from "../components/FirebaseUI";
 
-const UserContext = React.createContext({
-  token: "",
-  id: "",
-  isLoggedIn: false,
-  setTokenFunction: (token) => {},
-  setIDFunction: (ID) => {},
-  setLoggedInFunction: (LoggedIn) => {},
-});
+const UserContext = React.createContext();
 
 export const UserContextProvider = (props) => {
-  const [userToken, setUserToken] = useState("");
-  const [userID, setUserID] = useState("");
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState();
 
-  function setTokenFunction(data) {
-    setUserToken(data);
+  function signup(email, password) {
+    return auth.createUserWithEmailAndPassword(email, password);
   }
 
-  function setIDFunction(data) {
-    setUserID(data);
-  }
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setCurrentUser(user);
+    });
+    return unsubscribe;
+  }, []);
 
-  function setLoggedInFunction(data) {
-    setLoggedIn(data);
-  }
-
-  const userContextValue = {
-    token: userToken,
-    userID: userID,
-    loggedIn: loggedIn,
-    setTokenFunction: setTokenFunction,
-    setIDFunction: setIDFunction,
-    setLoggedInFunction: setLoggedInFunction,
+  const value = {
+    currentUser,
+    signup,
   };
 
   return (
