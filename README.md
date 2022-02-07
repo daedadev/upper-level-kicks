@@ -26,13 +26,13 @@ The search bar return search results as you type.
 ![Book view modal](/client/public/Screenshot3.PNG?raw=true)
 
 The search Results Page displays results you searched for upon clicking enter in the search bar or the magnifying glass button.
-![Book view modal](/client/public/Screenshot3.PNG?raw=true)
+![Book view modal](/client/public/Screenshot4.PNG?raw=true)
 
 Upon selecting a shoe you are brought to a page detailing the shoe and its prices along with some related shoes.
-![Book view modal](/client/public/Screenshot3.PNG?raw=true)
+![Book view modal](/client/public/Screenshot5.PNG?raw=true)
 
 Clicking one of the price buttons will display the prices of that specific company.
-![Book view modal](/client/public/Screenshot3.PNG?raw=true)
+![Book view modal](/client/public/Screenshot6.PNG?raw=true)
 
 ## License
 
