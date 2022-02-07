@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
+import { googlePopup } from "../../config/firebaseConfig";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
@@ -45,8 +46,13 @@ export default function SignUpForm() {
           className="login-input"
           ref={confirmPasswordRef}
         ></input>
-        <button type="submit" disabled={loading}>
+        <button type="submit" className="login-button" disabled={loading}>
           Sign Up
+        </button>
+
+        <button className="google-button" onClick={googlePopup}>
+          <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" />
+          Google Sign In
         </button>
       </form>
       <div>

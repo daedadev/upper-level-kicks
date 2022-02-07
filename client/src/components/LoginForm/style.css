@@ -54,7 +54,7 @@ label {
   margin-bottom: 20px;
 }
 
-.login-form button {
+.login-button {
   width: 90%;
   margin-top: 5px;
   background-color: #0076a5;
@@ -68,12 +68,52 @@ label {
   margin-bottom: 20px;
 }
 
-.login-form button:hover {
+.login-button:hover {
   background-color: #1b89b4;
   border-color: #209fd2;
 }
 
-.login-form button:active {
+.login-button:active {
   background-color: #209fd2;
   border-color: #ffffff;
+}
+
+.google-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin-top: 5px;
+  background-color: #f0f0f0;
+  border-style: solid;
+  border-color: #cacaca;
+  border-radius: 6px;
+  color: rgb(26, 26, 26);
+  font-size: larger;
+  padding: 10px;
+  transition: 0.2s;
+  margin-bottom: 20px;
+}
+
+.google-button img {
+  left: 0;
+  position: relative;
+  width: 20px;
+  margin-right: 20px;
+}
+
+.google-button h1 {
+  width: 80%;
+  margin-right: 20px;
+}
+
+.google-button:hover {
+  background-color: #ffffff;
+  border-color: #616161;
+}
+
+.google-button:active {
+  background-color: #616161;
+  border-color: #f0f0f0;
 }
