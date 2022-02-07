@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { auth } from "../components/FirebaseUI";
+import React, { useState, useEffect, useContext } from "react";
+import { auth } from "../config/firebaseConfig";
 
-const UserContext = React.createContext();
+const AuthContext = React.createContext();
 
-export const UserContextProvider = (props) => {
+export function useAuth() {
+  return useContext(AuthContext);
+}
+
+export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
 
   function signup(email, password) {
@@ -22,11 +26,5 @@ export const UserContextProvider = (props) => {
     signup,
   };
 
-  return (
-    <UserContext.Provider value={userContextValue}>
-      {props.children}
-    </UserContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
-
-export default UserContext;
