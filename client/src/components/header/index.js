@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import LoadingInlineSearch from "../LoadingComponents/InlineSearchResult";
 import "./style.css";
 
@@ -7,6 +8,7 @@ export default function Header() {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showInlineSearch, setShowInlineSearch] = useState("search-off");
+  const { currentUser } = useAuth();
 
   const [loaded, setLoaded] = useState(false);
 
@@ -102,8 +104,14 @@ export default function Header() {
 
           <nav>
             <a>about</a>
-            <a href="/login">login</a>
-            <a href="/login">sign up</a>
+            {currentUser ? (
+              <>
+                <a href="/login">login</a>
+                <a href="/signup">sign up</a>
+              </>
+            ) : (
+              <a>log out</a>
+            )}
             <a>your closet</a>
           </nav>
         </article>
