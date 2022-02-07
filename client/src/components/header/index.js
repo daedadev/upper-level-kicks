@@ -8,9 +8,15 @@ export default function Header() {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showInlineSearch, setShowInlineSearch] = useState("search-off");
-  const { currentUser } = useAuth();
+  const { currentUser, logout } = useAuth();
 
   const [loaded, setLoaded] = useState(false);
+
+  function logoutAccount() {
+    if (currentUser) {
+      logout();
+    }
+  }
 
   function refreshSearch(searchInput) {
     setSearchInput("");
@@ -58,8 +64,6 @@ export default function Header() {
     } else {
       setShowInlineSearch("search-on");
     }
-    console.log("Now Searching");
-
     runSearch(searchInput);
   }, [searchInput]);
 
@@ -106,11 +110,14 @@ export default function Header() {
             <a>about</a>
             {currentUser ? (
               <>
+                <a onClick={logoutAccount}>log out</a>{" "}
+                <h1>{currentUser.email}</h1>
+              </>
+            ) : (
+              <>
                 <a href="/login">login</a>
                 <a href="/signup">sign up</a>
               </>
-            ) : (
-              <a>log out</a>
             )}
             <a>your closet</a>
           </nav>
