@@ -4,7 +4,7 @@ import { googlePopup } from "../../config/firebaseConfig";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
-export default function SignUpForm() {
+export default function LogSignUpForm() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();

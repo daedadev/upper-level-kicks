@@ -1,12 +1,12 @@
 import { useContext, useEffect, createContext, useState } from "react";
-import SignUpForm from "../components/SignUpForm";
+import LogSignUpForm from "../components/LogSignUpForm";
 
-const SignupPage = () => {
+const LogSignInPage = () => {
   return (
     <section className="main-holder">
-      <SignUpForm />
+      <LogSignUpForm />
     </section>
   );
 };
 
-export default SignupPage;
+export default LogSignInPage;
