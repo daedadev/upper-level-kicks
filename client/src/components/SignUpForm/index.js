@@ -15,7 +15,11 @@ export default function SignUpForm() {
   const [loading, setLoading] = useState(false);
   const [formType, setFormType] = useState(false);
 
-  function handleSubmit(e) {
+  function changeFormType(type) {
+    setFormType(type);
+  }
+
+  function handleSubmitSignUp(e) {
     e.preventDefault();
 
     if (passwordRef.current.value !== confirmPasswordRef.current.value) {
@@ -37,12 +41,22 @@ export default function SignUpForm() {
     setLoading(false);
   }
 
-  function changeFormType(type) {
-    setFormType(type);
+  function handleSubmitLogIn(e) {
+    e.preventDefault();
+
+    try {
+      setError("");
+      setLoading(true);
+      login(emailRef.current.value, passwordRef.current.value);
+      navigate("/");
+    } catch (err) {
+      setError("Failed to sign in");
+    }
+    setLoading(false);
   }
 
   const loginForm = (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmitSignUp}>
       <div>Log In</div>
       {error && <label className="danger-label">{error}</label>}
       <label>Email</label>
@@ -60,7 +74,7 @@ export default function SignUpForm() {
   );
 
   const signupForm = (
-    <form className="login-form" onSubmit={handleSubmit}>
+    <form className="login-form" onSubmit={handleSubmitLogIn}>
       <div>Sign Up</div>
       {error && <label className="danger-label">{error}</label>}
       <label>Email</label>
