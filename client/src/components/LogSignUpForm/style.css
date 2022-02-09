@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  margin-top: 100px;
 }
 
 .login-form-holder div {
@@ -38,7 +39,7 @@ label {
   max-width: 400px;
   height: 500px;
   border-style: solid;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
   border-width: 1px;
 }
 
@@ -50,9 +51,14 @@ label {
 }
 
 .login-input {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 30px;
   width: 90%;
   margin-bottom: 20px;
+  font-size: large;
 }
 
 .login-button {
@@ -117,4 +123,89 @@ label {
 .google-button:active {
   background-color: #616161;
   border-color: #f0f0f0;
+}
+
+#logsign-button-holder {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0;
+  width: 90%;
+  max-width: 400px;
+  border-style: solid;
+  border-radius: 0px 0px 10px 10px;
+  border-width: 0px 1px 1px 1px;
+}
+
+.loginButton-class {
+  border-radius: 0px 0px 10px 0px;
+}
+
+.signupButton-class {
+  border-radius: 0px 0px 0px 10px;
+}
+
+#active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+  height: 40px;
+  background-color: #cfcfcf;
+  border-style: none;
+  color: rgb(26, 26, 26);
+  font-size: larger;
+  padding: 2px;
+  transition: ease 0.4s;
+}
+
+#active div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  background-color: #000000;
+  border-style: none;
+  color: rgb(26, 26, 26);
+  font-size: larger;
+  padding: 1px;
+  margin-top: 4px;
+  transition: ease 0.4s;
+}
+
+#inactive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+  height: 40px;
+  background-color: #ffffff;
+  border-style: none;
+  color: rgb(26, 26, 26);
+  font-size: larger;
+  padding: 2px;
+  transition: ease 0.4s;
+  cursor: pointer;
+}
+
+/* #inactive:hover {
+  background-color: #dbdbdb;
+  transition: ease 0.4s;
+} */
+
+#inactive div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  background-color: #eeeeee;
+  border-style: none;
+  color: rgb(26, 26, 26);
+  font-size: larger;
+  padding: 1px;
+  margin-top: 4px;
+  transition: ease 0.4s;
 }

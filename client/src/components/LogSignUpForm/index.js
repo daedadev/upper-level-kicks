@@ -1,10 +1,14 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { googlePopup } from "../../config/firebaseConfig";
 import { Link, useNavigate } from "react-router-dom";
 import "./style.css";
 
 export default function LogSignUpForm() {
+  const mainString = window.location.href.split("?")[0];
+
+  const loginType = mainString.substring(mainString.lastIndexOf("/") + 1);
+
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
@@ -14,8 +18,33 @@ export default function LogSignUpForm() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [formType, setFormType] = useState(false);
+  const [loginButton, setLoginButton] = useState("");
+  const [signupButton, setSignupButton] = useState("");
+
+  useEffect(() => {
+    if (loginType === "login") {
+      setFormType(true);
+      setLoginButton("active");
+      setSignupButton("inactive");
+    }
+    if (loginType === "signup") {
+      setFormType(false);
+      setLoginButton("inactive");
+      setSignupButton("active");
+    }
+  }, []);
 
   function changeFormType(type) {
+    if (type === true) {
+      setError("");
+      setLoginButton("active");
+      setSignupButton("inactive");
+    }
+    if (type === false) {
+      setError("");
+      setLoginButton("inactive");
+      setSignupButton("active");
+    }
     setFormType(type);
   }
 
@@ -23,7 +52,6 @@ export default function LogSignUpForm() {
     e.preventDefault();
 
     if (passwordRef.current.value !== confirmPasswordRef.current.value) {
-      console.log("bruh");
       return setError("Passwords do not match");
     }
 
@@ -50,20 +78,25 @@ export default function LogSignUpForm() {
       login(emailRef.current.value, passwordRef.current.value);
       navigate("/");
     } catch (err) {
-      setError("Failed to sign in");
+      setError("Failed to log in");
     }
     setLoading(false);
   }
 
   const loginForm = (
-    <form className="login-form" onSubmit={handleSubmitSignUp}>
+    <form className="login-form">
       <div>Log In</div>
       {error && <label className="danger-label">{error}</label>}
       <label>Email</label>
       <input type="text" className="login-input" ref={emailRef}></input>
       <label>Password</label>
-      <input type="text" className="login-input" ref={passwordRef}></input>
-      <button type="submit" className="login-button" disabled={loading}>
+      <input type="password" className="login-input" ref={passwordRef}></input>
+      <button
+        type="submit"
+        className="login-button"
+        disabled={loading}
+        onClick={handleSubmitLogIn}
+      >
         Log In
       </button>
       <button onClick={googlePopup} className="google-button">
@@ -74,13 +107,13 @@ export default function LogSignUpForm() {
   );
 
   const signupForm = (
-    <form className="login-form" onSubmit={handleSubmitLogIn}>
+    <form className="login-form" onSubmit={handleSubmitSignUp}>
       <div>Sign Up</div>
       {error && <label className="danger-label">{error}</label>}
       <label>Email</label>
       <input type="text" className="login-input" ref={emailRef}></input>
       <label>Password</label>
-      <input type="text" className="login-input" ref={passwordRef}></input>
+      <input type="password" className="login-input" ref={passwordRef}></input>
       <label>Confirm Password</label>
       <input
         type="text"
@@ -93,7 +126,7 @@ export default function LogSignUpForm() {
 
       <button className="google-button" onClick={googlePopup}>
         <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" />
-        Google Sign In
+        Sign In With Google
       </button>
     </form>
   );
@@ -101,9 +134,23 @@ export default function LogSignUpForm() {
   return (
     <div className="login-form-holder">
       {formType ? loginForm : signupForm}
-      <div>
-        <button onClick={() => changeFormType(false)}>Sign Up</button>
-        <button onClick={() => changeFormType(true)}>Log in</button>
+      <div id="logsign-button-holder">
+        <button
+          id={signupButton}
+          className="signupButton-class"
+          onClick={() => changeFormType(false)}
+        >
+          Sign Up
+          <div></div>
+        </button>
+        <button
+          id={loginButton}
+          className="loginButton-class"
+          onClick={() => changeFormType(true)}
+        >
+          Log in
+          <div></div>
+        </button>
       </div>
     </div>
   );

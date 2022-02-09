@@ -115,8 +115,8 @@ export default function Header() {
               </>
             ) : (
               <>
-                <a href="/logsignin?type=login">login</a>
-                <a href="/logsignin?type=signup">sign up</a>
+                <a href="/login">login</a>
+                <a href="/signup">sign up</a>
               </>
             )}
             <a>your closet</a>
