@@ -19,6 +19,8 @@ function googlePopup() {
   return auth.signInWithPopup(provider);
 }
 
+const user = auth.currentUser;
+
 export const uiConfig = {
   signInFlow: "popup",
   signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
@@ -27,4 +29,4 @@ export const uiConfig = {
   },
 };
 
-export { app, googlePopup, auth };
+export { app, googlePopup, auth, user };

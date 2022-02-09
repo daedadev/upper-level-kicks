@@ -37,7 +37,7 @@ label {
   justify-content: space-evenly;
   width: 90%;
   max-width: 400px;
-  height: 500px;
+  height: 600px;
   border-style: solid;
   border-radius: 10px 10px 0px 0px;
   border-width: 1px;
@@ -208,4 +208,10 @@ label {
   padding: 1px;
   margin-top: 4px;
   transition: ease 0.4s;
+}
+
+@media screen and (max-width: 768px) {
+  .login-form-holder {
+    margin-top: 0px;
+  }
 }

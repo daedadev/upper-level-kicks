@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { googlePopup } from "../../config/firebaseConfig";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./style.css";
 
 export default function LogSignUpForm() {
@@ -10,9 +10,10 @@ export default function LogSignUpForm() {
   const loginType = mainString.substring(mainString.lastIndexOf("/") + 1);
 
   const emailRef = useRef();
+  const usernameRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
-  const { signup } = useAuth();
+  const { signup, login } = useAuth();
   const navigate = useNavigate();
 
   const [error, setError] = useState("");
@@ -34,6 +35,7 @@ export default function LogSignUpForm() {
     }
   }, []);
 
+  // Sign Up Function
   function changeFormType(type) {
     if (type === true) {
       setError("");
@@ -48,8 +50,24 @@ export default function LogSignUpForm() {
     setFormType(type);
   }
 
+  // Google Login
+  function logInWithGoogle() {
+    try {
+      googlePopup;
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+      setError("Google Sign In Failed");
+    }
+  }
+
+  // Sign Up Function
   function handleSubmitSignUp(e) {
     e.preventDefault();
+
+    if (!passwordRef.current.value) {
+      return setError("Username is required");
+    }
 
     if (passwordRef.current.value !== confirmPasswordRef.current.value) {
       return setError("Passwords do not match");
@@ -61,14 +79,20 @@ export default function LogSignUpForm() {
     try {
       setError("");
       setLoading(true);
-      signup(emailRef.current.value, passwordRef.current.value);
+      signup(
+        emailRef.current.value,
+        passwordRef.current.value,
+        usernameRef.current.value
+      );
     } catch (err) {
+      console.log(err);
       setError("Failed to create an account");
     }
     navigate("/");
     setLoading(false);
   }
 
+  // Log in Function
   function handleSubmitLogIn(e) {
     e.preventDefault();
 
@@ -78,28 +102,25 @@ export default function LogSignUpForm() {
       login(emailRef.current.value, passwordRef.current.value);
       navigate("/");
     } catch (err) {
+      console.log(err);
       setError("Failed to log in");
     }
     setLoading(false);
   }
 
+  // JSX variable to toggle between login and signup forms
   const loginForm = (
-    <form className="login-form">
+    <form className="login-form" onSubmit={handleSubmitLogIn}>
       <div>Log In</div>
       {error && <label className="danger-label">{error}</label>}
       <label>Email</label>
       <input type="text" className="login-input" ref={emailRef}></input>
       <label>Password</label>
       <input type="password" className="login-input" ref={passwordRef}></input>
-      <button
-        type="submit"
-        className="login-button"
-        disabled={loading}
-        onClick={handleSubmitLogIn}
-      >
+      <button type="submit" className="login-button" disabled={loading}>
         Log In
       </button>
-      <button onClick={googlePopup} className="google-button">
+      <button onClick={googlePopup} type="button" className="google-button">
         <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" />
         Sign In With Google
       </button>
@@ -110,21 +131,24 @@ export default function LogSignUpForm() {
     <form className="login-form" onSubmit={handleSubmitSignUp}>
       <div>Sign Up</div>
       {error && <label className="danger-label">{error}</label>}
+
       <label>Email</label>
       <input type="text" className="login-input" ref={emailRef}></input>
       <label>Password</label>
       <input type="password" className="login-input" ref={passwordRef}></input>
       <label>Confirm Password</label>
       <input
-        type="text"
+        type="password"
         className="login-input"
         ref={confirmPasswordRef}
       ></input>
+      <label>Username</label>
+      <input type="text" className="login-input" ref={usernameRef}></input>
       <button type="submit" className="login-button" disabled={loading}>
         Sign Up
       </button>
 
-      <button className="google-button" onClick={googlePopup}>
+      <button className="google-button" type="button" onClick={googlePopup}>
         <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" />
         Sign In With Google
       </button>

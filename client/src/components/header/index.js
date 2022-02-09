@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { user } from "../../config/firebaseConfig";
 import LoadingInlineSearch from "../LoadingComponents/InlineSearchResult";
 import "./style.css";
 
@@ -110,8 +111,9 @@ export default function Header() {
             <a>about</a>
             {currentUser ? (
               <>
-                <a onClick={logoutAccount}>log out</a>{" "}
-                <h1>{currentUser.email}</h1>
+                <a onClick={logoutAccount}>log out</a> <a>your closet</a>
+                <a href="/dashboard">dashboard</a>
+                <h1 id="username-text">{currentUser.displayName}</h1>
               </>
             ) : (
               <>
@@ -119,7 +121,6 @@ export default function Header() {
                 <a href="/signup">sign up</a>
               </>
             )}
-            <a>your closet</a>
           </nav>
         </article>
         <article id="header-search-holder">

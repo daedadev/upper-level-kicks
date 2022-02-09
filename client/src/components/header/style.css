@@ -17,6 +17,11 @@ header {
   color: white;
 }
 
+#username-text {
+  color: rgb(255, 255, 255);
+  text-shadow: 3px 3px #424242;
+}
+
 #header-holder {
   display: flex;
   flex-direction: column;

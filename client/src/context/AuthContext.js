@@ -10,8 +10,17 @@ export function useAuth() {
 export const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
 
-  function signup(email, password) {
-    return auth.createUserWithEmailAndPassword(email, password);
+  function signup(email, password, userName) {
+    return auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(function (result) {
+        return result.user.updateProfile({
+          displayName: userName,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   function login(email, password) {
@@ -25,6 +34,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
+      console.log(user);
     });
     return unsubscribe;
   }, []);
