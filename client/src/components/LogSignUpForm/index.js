@@ -13,7 +13,7 @@ export default function LogSignUpForm() {
   const usernameRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
-  const { signup, login } = useAuth();
+  const { signup, login, currentUser } = useAuth();
   const navigate = useNavigate();
 
   const [error, setError] = useState("");
@@ -93,18 +93,28 @@ export default function LogSignUpForm() {
   }
 
   // Log in Function
-  function handleSubmitLogIn(e) {
+  async function handleSubmitLogIn(e) {
     e.preventDefault();
 
     try {
       setError("");
       setLoading(true);
-      login(emailRef.current.value, passwordRef.current.value);
-      navigate("/");
+      login(emailRef.current.value, passwordRef.current.value).catch(function (
+        err
+      ) {
+        console.log(err.code);
+        switch (err.code) {
+          case "auth/wrong-password":
+            setError("Invalid Password");
+            break;
+        }
+        return;
+      });
     } catch (err) {
       console.log(err);
       setError("Failed to log in");
     }
+
     setLoading(false);
   }
 
