@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
-import { googlePopup } from "../../config/firebaseConfig";
+import { auth, provider } from "../../config/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
@@ -52,13 +52,12 @@ export default function LogSignUpForm() {
 
   // Google Login
   function logInWithGoogle() {
-    try {
-      googlePopup;
-      navigate("/");
-    } catch (err) {
-      console.log(err);
-      setError("Google Sign In Failed");
-    }
+    auth.signInWithPopup(provider).then(() => {
+      navigate("/").catch((err) => {
+        console.log(err);
+        setError("Google Sign In Failed");
+      });
+    });
   }
 
   // Sign Up Function
@@ -133,7 +132,7 @@ export default function LogSignUpForm() {
       <button type="submit" className="login-button" disabled={loading}>
         Log In
       </button>
-      <button onClick={googlePopup} type="button" className="google-button">
+      <button onClick={logInWithGoogle} type="button" className="google-button">
         <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" />
         Sign In With Google
       </button>
@@ -161,7 +160,7 @@ export default function LogSignUpForm() {
         Sign Up
       </button>
 
-      <button className="google-button" type="button" onClick={googlePopup}>
+      <button className="google-button" type="button" onClick={logInWithGoogle}>
         <img src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg" />
         Sign In With Google
       </button>

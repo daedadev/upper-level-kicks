@@ -29,4 +29,4 @@ export const uiConfig = {
   },
 };
 
-export { app, googlePopup, auth, user };
+export { app, googlePopup, auth, user, provider };
