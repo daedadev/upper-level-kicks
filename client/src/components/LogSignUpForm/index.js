@@ -83,12 +83,14 @@ export default function LogSignUpForm() {
         emailRef.current.value,
         passwordRef.current.value,
         usernameRef.current.value
-      );
+      ).then(() => {
+        navigate("/");
+        window.location.reload();
+      });
     } catch (err) {
       console.log(err);
       setError("Failed to create an account");
     }
-    navigate("/");
     setLoading(false);
   }
 
@@ -99,22 +101,23 @@ export default function LogSignUpForm() {
     try {
       setError("");
       setLoading(true);
-      login(emailRef.current.value, passwordRef.current.value).catch(function (
-        err
-      ) {
-        console.log(err.code);
-        switch (err.code) {
-          case "auth/wrong-password":
-            setError("Invalid Password");
-            break;
-        }
-        return;
-      });
+      login(emailRef.current.value, passwordRef.current.value)
+        .then(() => {
+          navigate("/");
+        })
+        .catch(function (err) {
+          console.log(err.code);
+          switch (err.code) {
+            case "auth/wrong-password":
+              setError("Invalid Password");
+              break;
+          }
+          return;
+        });
     } catch (err) {
       console.log(err);
       setError("Failed to log in");
     }
-
     setLoading(false);
   }
 

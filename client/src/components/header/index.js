@@ -9,9 +9,16 @@ export default function Header() {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showInlineSearch, setShowInlineSearch] = useState("search-off");
+  const [userName, setUserName] = useState("");
   const { currentUser, logout } = useAuth();
 
   const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (currentUser) {
+      setUserName(currentUser.displayName);
+    }
+  }, [currentUser]);
 
   function logoutAccount() {
     if (currentUser) {
@@ -113,7 +120,7 @@ export default function Header() {
               <>
                 <a onClick={logoutAccount}>log out</a> <a>your closet</a>
                 <a href="/dashboard">dashboard</a>
-                <h1 id="username-text">{currentUser.displayName}</h1>
+                <h1 id="username-text">{userName}</h1>
               </>
             ) : (
               <>
