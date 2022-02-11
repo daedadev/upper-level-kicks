@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import SearchResultPage from "./pages/ResultPage";
 import LogSignInPage from "./pages/LogSignInPage";
+import { Dashboard } from "./pages/Dashboard";
 import { AuthContextProvider } from "./context/AuthContext";
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Route path="/login" element={<LogSignInPage />} />
           <Route path="/signup" element={<LogSignInPage />} />
           <Route path="/search/:search" element={<SearchResultPage />} />
-          <Route path="/dashboard" element={<SearchResultPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <Footer />
       </Router>
