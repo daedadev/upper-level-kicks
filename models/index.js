@@ -12,7 +12,7 @@ Sneaker.belongsTo(User, {
   onDelete: "CASCADE",
 });
 
-User.hasMany(Comment, Sneaker, {
+User.hasMany(Sneaker, {
   foreignKey: "user_id",
   onDelete: "CASCADE",
 });

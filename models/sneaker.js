@@ -17,32 +17,22 @@ Sneaker.init(
       unique: false,
       allowNull: false,
     },
-    brand: {
-      type: DataTypes.STRING,
-      unique: false,
-      allowNull: false,
-    },
     name: {
       type: DataTypes.STRING,
       unique: false,
       allowNull: false,
     },
-    silhouette: {
+    brand: {
       type: DataTypes.STRING,
       unique: false,
       allowNull: false,
     },
-    description: {
+    make: {
       type: DataTypes.STRING,
       unique: false,
       allowNull: false,
     },
-    shoeSize: {
-      type: DataTypes.STRING,
-      unique: false,
-      allowNull: false,
-    },
-    images: {
+    image: {
       type: DataTypes.STRING,
       unique: false,
       allowNull: false,
