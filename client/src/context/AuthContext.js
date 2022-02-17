@@ -16,6 +16,7 @@ export const AuthContextProvider = ({ children }) => {
       .then(function (result) {
         return result.user.updateProfile({
           displayName: userName,
+          photoURL: "http://clipart-library.com/img/741831.jpg",
         });
       })
       .catch(function (error) {
