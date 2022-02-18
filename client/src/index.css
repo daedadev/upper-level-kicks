@@ -57,6 +57,14 @@ body {
   padding-top: 40px;
 }
 
+#lower-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .rec.rec-dot:hover,
 .rec.rec-dot:focus {
   background-color: #0076a5;

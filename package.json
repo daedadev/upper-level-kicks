@@ -34,6 +34,8 @@
     "mysql2": "^2.3.3",
     "node": "^17.4.0",
     "sequelize": "^6.14.0",
-    "sneaks-api": "^1.2.3"
+    "sneaks-api": "^1.2.3",
+    "twit": "^2.2.11",
+    "twitter-api-v2": "^1.11.0"
   }
 }

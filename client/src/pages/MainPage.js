@@ -6,6 +6,7 @@ import RandomShoe from "../components/RandomShoe";
 import LoadingSneaker from "../components/LoadingComponents/SneakerItem";
 import LoadingPopularSneaker from "../components/LoadingComponents/PopularSneaker";
 import ShoeInfo from "../components/ShoeInfo";
+import TwitterFeed from "../components/TwitterFeed";
 
 const MainPage = () => {
   const [sneakers, setSneakers] = useState([]);
@@ -69,7 +70,10 @@ const MainPage = () => {
         <Carousel breakPoints={breakPoints} itemsToScroll={1}>
           {isLoading ? loadedShoe : loadingShoe}
         </Carousel>
-        <RandomShoe />
+        <div id="lower-holder">
+          <RandomShoe />
+          <TwitterFeed />
+        </div>
       </article>
     </section>
   );

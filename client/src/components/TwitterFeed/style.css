@@ -1,0 +1,57 @@
+.twitter-main-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-style: solid;
+  overflow-y: scroll;
+  border-width: 2px;
+  border-radius: 5px;
+  width: 48%;
+  max-width: 1400px;
+  margin-top: 20px;
+  height: 450px;
+}
+
+.twitter-header {
+  margin-top: 10px;
+  font-size: x-large;
+}
+
+.twitter-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.tweet-holder {
+  display: flex;
+  flex-direction: row;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  margin-top: 15px;
+  width: 95%;
+  min-height: 120px;
+  border-color: #0076a5;
+}
+
+.tweet-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+}
+
+.tweet-profile img {
+  border-radius: 30px;
+}
+
+.tweet-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+}
