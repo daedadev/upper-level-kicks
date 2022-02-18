@@ -30,13 +30,13 @@ export default function TwitterFeed() {
   useEffect(() => {
     getTweets();
   }, []);
-  <div></div>;
+
   if (loaded) {
     return (
       <section className="twitter-main-holder">
         <h1 className="twitter-header">Twitter News</h1>
         <div className="twitter-holder">
-          {twitterData.statuses.map((tweet) => {
+          {twitterData.map((tweet) => {
             return (
               <div key={tweet.id} className="tweet-holder">
                 <div className="tweet-profile">
@@ -45,6 +45,15 @@ export default function TwitterFeed() {
                 </div>
                 <div className="tweet-content">
                   <p>{tweet.text}</p>
+                  {tweet.extended_entities &&
+                    tweet.extended_entities.media.map((image) => {
+                      return (
+                        <img
+                          className="tweet-images"
+                          src={image.media_url}
+                        ></img>
+                      );
+                    })}
                 </div>
               </div>
             );

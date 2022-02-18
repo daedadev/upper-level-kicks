@@ -55,3 +55,15 @@
   justify-content: center;
   width: 70%;
 }
+
+.tweet-content p {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.tweet-images {
+  width: 95%;
+  border-radius: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
