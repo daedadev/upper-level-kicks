@@ -7,8 +7,6 @@ function UserProfile() {
 
   console.log(currentUser);
 
-  useEffect(() => {});
-
   if (currentUser) {
     return (
       <div className="dashboard-holder">

@@ -26,6 +26,7 @@ export default function Header() {
   function logoutAccount() {
     if (currentUser) {
       logout();
+      window.location.href = "/";
     }
   }
 
