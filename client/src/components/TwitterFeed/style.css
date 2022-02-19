@@ -6,7 +6,7 @@
   overflow-y: scroll;
   border-width: 2px;
   border-radius: 5px;
-  width: 48%;
+  width: 49%;
   max-width: 1400px;
   margin-top: 20px;
   height: 450px;
@@ -34,18 +34,31 @@
   width: 95%;
   min-height: 120px;
   border-color: #0076a5;
+  background-color: #0076a5;
+  color: aliceblue;
 }
 
 .tweet-profile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 25px;
   width: 30%;
+}
+
+.tweet-profile h1 {
+  font-size: larger;
+  margin-bottom: 10px;
 }
 
 .tweet-profile img {
   border-radius: 30px;
+  width: 45px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: aliceblue;
+  margin-bottom: 20px;
 }
 
 .tweet-content {
@@ -57,8 +70,10 @@
 }
 
 .tweet-content p {
+  width: 95%;
   margin-top: 10px;
   text-align: center;
+  font-size: larger;
 }
 
 .tweet-images {
@@ -66,4 +81,30 @@
   border-radius: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: aliceblue;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .twitter-main-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    overflow-y: scroll;
+    border-width: 2px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 1400px;
+    margin-top: 20px;
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 590px) {
+}
+
+@media screen and (max-width: 420px) {
 }

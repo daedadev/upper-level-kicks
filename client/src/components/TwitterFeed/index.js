@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import LoadingRandomShoe from "../LoadingComponents/RandomShoe";
+import LoadingTwitter from "../LoadingComponents/TwitterLoading";
 import "./style.css";
 
 export default function TwitterFeed() {
@@ -62,6 +63,6 @@ export default function TwitterFeed() {
       </section>
     );
   } else {
-    return <LoadingRandomShoe />;
+    return <LoadingTwitter />;
   }
 }
