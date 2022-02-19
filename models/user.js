@@ -17,7 +17,7 @@ User.init(
       allowNull: false,
       unique: true,
     },
-    piture: {
+    picture: {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,

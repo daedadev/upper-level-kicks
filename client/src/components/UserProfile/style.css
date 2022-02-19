@@ -1,0 +1,80 @@
+.dashboard-holder {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1400px;
+  min-height: 80vh;
+}
+
+.dash-profile-holder {
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.dash-image-holder {
+  display: flex;
+  width: 120px;
+  border-style: solid;
+  align-items: center;
+  justify-content: center;
+  border-width: 1px;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.dash-pfp {
+  width: 120px;
+  border-radius: 300px;
+}
+
+.dash-bio-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  margin: 20px 20px 20px 0px;
+  padding-left: 40px;
+}
+
+.dash-bio-holder h1 {
+  font-size: xx-large;
+}
+
+.dash-bio-holder p {
+  font-size: larger;
+}
+
+.saved-shoes-holder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.small-saved-shoe-holder {
+  display: flex;
+  width: 30%;
+  flex-direction: row;
+  margin-top: 20px;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.saved-top-holder {
+}
+
+.saved-bottom-holder {
+}
