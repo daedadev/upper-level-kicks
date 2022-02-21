@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { User, Sneaker } = require(`../models/`);
 const SneaksAPI = require("sneaks-api");
 const sneaks = new SneaksAPI();
+const cors = require("cors");
 
 // Return popular shoes /api/popular
 router.get("/popular", async (req, res) => {
@@ -41,20 +42,18 @@ router.get("/product/:style", async (req, res) => {
 });
 
 // Getting a shoe /api/shoe
-router.post("/shoe", async (req, res) => {
-  const shoe = req.body;
-
+router.get("/shoe/:user_id", async (req, res) => {
   try {
-    Sneaker.create({
-      styleID: shoe.styleID,
-      name: shoe.name,
-      brand: shoe.brand,
-      make: shoe.make,
-      image: shoe.image,
-      user_id: shoe.user_id,
+    const shoes = await Sneaker.findAll({
+      where: {
+        user_id: req.params.user_id,
+      },
     });
 
-    res.send("Successfully added shoe");
+    const savedShoes = shoes.map((shoe) => shoe.get({ plain: true }));
+
+    res.send(savedShoes);
+    console.log(savedShoes);
   } catch (err) {
     console.log(err);
     res.send(err);
@@ -63,19 +62,36 @@ router.post("/shoe", async (req, res) => {
 
 // Saving a shoe /api/shoe
 router.post("/shoe", async (req, res) => {
-  const shoe = req.body;
-
+  console.log(req.body);
   try {
     Sneaker.create({
-      styleID: shoe.styleID,
-      name: shoe.name,
-      brand: shoe.brand,
-      make: shoe.make,
-      image: shoe.image,
-      user_id: shoe.user_id,
+      styleID: req.body.styleID,
+      name: req.body.name,
+      brand: req.body.brand,
+      make: req.body.make,
+      image: req.body.image,
+      user_id: req.body.user_id,
     });
 
-    res.send("Successfully added shoe");
+    res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
+    res.send(err);
+  }
+});
+
+// Deleting a shoe /api/shoe/:user_id?styleID=
+router.delete("/shoe/", async (req, res) => {
+  console.log(req.body);
+  try {
+    Sneaker.destroy({
+      where: {
+        user_id: req.body.user_id,
+        styleID: req.body.styleID,
+      },
+    });
+
+    res.sendStatus(200);
   } catch (err) {
     console.log(err);
     res.send(err);

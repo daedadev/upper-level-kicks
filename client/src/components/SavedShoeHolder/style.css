@@ -1,0 +1,75 @@
+.small-saved-shoe-holder {
+  position: relative;
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.saved-top-holder {
+  display: flex;
+  width: 98%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.small-saved-shoe-holder img {
+  display: flex;
+  width: 200px;
+}
+
+.saved-top-holder h1 {
+  text-align: center;
+}
+
+.saved-bottom-holder {
+  display: flex;
+  width: 95%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.delete-saved-button {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+  background-color: rgb(233, 233, 233);
+  font-size: larger;
+  transition: 0.2s;
+  text-align: center;
+}
+
+.delete-saved-button:hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  border-style: solid;
+  border-color: rgb(201, 201, 201);
+  border-width: 1px;
+  background-color: rgb(255, 43, 43);
+  color: aliceblue;
+  cursor: pointer;
+  font-size: larger;
+}

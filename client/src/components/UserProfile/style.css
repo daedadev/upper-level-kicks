@@ -54,27 +54,13 @@
 .saved-shoes-holder {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   justify-content: space-evenly;
+  min-height: 50vh;
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
   margin-top: 20px;
   padding-bottom: 20px;
-}
-
-.small-saved-shoe-holder {
-  display: flex;
-  width: 30%;
-  flex-direction: row;
-  margin-top: 20px;
-  border-radius: 5px;
-  border-width: 2px;
-  border-style: solid;
-}
-
-.saved-top-holder {
-}
-
-.saved-bottom-holder {
 }
