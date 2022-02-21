@@ -5,6 +5,8 @@
   width: 80%;
   border-style: solid;
   border-radius: 5px;
+  border-color: rgb(117, 117, 117);
+
   border-width: 2px;
   padding: 10px;
   transition: 0.2s;

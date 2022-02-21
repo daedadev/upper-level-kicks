@@ -29,7 +29,7 @@ export default function SavedShoe({ saved, deleteShoe }) {
         onClick={() => deleteShoe(saved.styleID)}
         className="delete-saved-button"
       >
-        X
+        <h1>X</h1>
       </button>
     </div>
   );

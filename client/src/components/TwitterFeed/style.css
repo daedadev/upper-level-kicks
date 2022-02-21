@@ -4,6 +4,7 @@
   align-items: center;
   border-style: solid;
   overflow-y: scroll;
+  border-color: rgb(117, 117, 117);
   border-width: 2px;
   border-radius: 5px;
   width: 49%;
