@@ -1,5 +1,6 @@
 .main-sneaker-large-holder {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 80%;
@@ -13,6 +14,9 @@
 }
 
 .main-sneaker-large-holder a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   color: black;
 }
 
@@ -27,7 +31,6 @@
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-  padding-bottom: 10px;
   height: 350px;
 }
 
@@ -68,6 +71,39 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+.sneaker-save-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  color: aliceblue;
+  border-color: #0076a5;
+  background-color: #0076a5;
+  border-style: solid;
+  border-radius: 5px;
+  width: 90px;
+  height: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sneaker-save-button:hover {
+  display: flex;
+  z-index: 2;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  color: aliceblue;
+  border-color: #209fd2;
+  background-color: #209fd2;
+  border-style: solid;
+  border-radius: 5px;
+  width: 90px;
+  height: 20px;
+  cursor: pointer;
+  transition: 0.6s;
 }
 
 @media screen and (max-width: 1400px) {

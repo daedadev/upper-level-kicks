@@ -39,7 +39,7 @@ export default function TwitterFeed() {
         <div className="twitter-holder">
           {twitterData.map((tweet) => {
             return (
-              <div key={tweet.id} className="tweet-holder">
+              <div key={tweet.id_str} className="tweet-holder">
                 <div className="tweet-profile">
                   <h1>{tweet.user.screen_name}</h1>
                   <img src={tweet.user.profile_image_url}></img>
@@ -50,6 +50,7 @@ export default function TwitterFeed() {
                     tweet.extended_entities.media.map((image) => {
                       return (
                         <img
+                          key={image.id + tweet.id}
                           className="tweet-images"
                           src={image.media_url}
                         ></img>

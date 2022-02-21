@@ -20,6 +20,7 @@ header {
 #username-text {
   color: rgb(255, 255, 255);
   text-shadow: 3px 3px #424242;
+  margin-left: 20px;
 }
 
 #username-image {
@@ -27,6 +28,7 @@ header {
   width: 40px;
   image-resolution: 10;
   border-radius: 100px;
+  margin-left: 10px;
 }
 
 #header-holder {
@@ -56,13 +58,14 @@ header {
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   width: 40%;
 }
 
 #header-top-holder nav a {
   font-family: Arial, Helvetica, sans-serif;
   cursor: pointer;
+  margin-left: 20px;
 }
 
 #header-search-holder {
@@ -251,6 +254,18 @@ header {
     flex-direction: column;
     width: 400px;
     padding-top: 40px;
+  }
+
+  #header-top-holder nav a {
+    margin: 0;
+  }
+
+  #username-text {
+    margin: 0;
+  }
+
+  #username-image {
+    margin: 0;
   }
 
   #header-top-holder nav {

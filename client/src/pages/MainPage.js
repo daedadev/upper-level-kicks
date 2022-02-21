@@ -51,11 +51,10 @@ const MainPage = () => {
 
   var loadArray = [1, 2, 3, 4, 5];
   const loadingShoe = loadArray.map((item) => {
-    return <LoadingSneaker />;
+    return <LoadingSneaker key={loadArray.indexOf(item)} />;
   });
-
   const loadedShoe = arrayLoop.map((item) => {
-    return <Sneaker theSneaker={item} />;
+    return <Sneaker key={item.styleID} theSneaker={item} />;
   });
 
   return (

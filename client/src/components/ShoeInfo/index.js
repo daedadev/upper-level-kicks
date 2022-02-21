@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
-
 import "./style.css";
 
 export default function ShoeInfo({ shoe }) {
@@ -108,7 +107,11 @@ export default function ShoeInfo({ shoe }) {
           <img src={shoe.thumbnail} loading="lazy"></img>
           <article className="bottom-info-holder">
             <h1>{shoe.colorway}</h1>
-            {currentUser ? <button onClick={saveShoe}>Save Shoe</button> : {}}
+            {currentUser ? (
+              <button onClick={saveShoe}>Save Shoe</button>
+            ) : (
+              <div></div>
+            )}
           </article>
         </article>
       </section>
@@ -143,7 +146,7 @@ export default function ShoeInfo({ shoe }) {
         <ul className="size-item-holder">
           {shoeSizeList.map((item) => {
             return (
-              <li className="size-item">
+              <li key={item.styleID} className="size-item">
                 <label className="size-text">{item.size}</label>
                 <label className="price-text">${item.price}</label>
               </li>

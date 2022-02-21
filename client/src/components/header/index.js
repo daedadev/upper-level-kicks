@@ -103,7 +103,7 @@ export default function Header() {
   var theArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 
   const loadingResults = theArray.map((item) => {
-    return <LoadingInlineSearch />;
+    return <LoadingInlineSearch key={theArray.indexOf(item)} />;
   });
 
   return (

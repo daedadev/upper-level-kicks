@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import "./style.css";
 
 export default function Sneaker(theSneaker, changeState) {
+  const { currentUser } = useAuth();
+
   var sneaker = theSneaker.theSneaker;
 
   var lowestResellPrice = sneaker.lowestResellPrice;
@@ -15,8 +18,40 @@ export default function Sneaker(theSneaker, changeState) {
   var description = sneaker.description;
   var resellLinks = sneaker.resellLinks;
 
+  async function saveShoe() {
+    const payload = {
+      styleID: sneaker.styleID,
+      name: sneaker.shoeName,
+      brand: sneaker.brand,
+      make: sneaker.make,
+      image: sneaker.thumbnail,
+      user_id: currentUser.uid,
+    };
+
+    try {
+      await fetch("http://localhost:3001/api/shoe", {
+        method: `POST`,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      }).then((response) => {
+        if (response.status === 200) {
+          window.alert("Shoe Saved Successfully");
+        }
+      });
+    } catch (err) {
+      window.alert("There was a problem saving your shoe");
+      console.log(err);
+    }
+  }
+
   return (
-    <div id={styleID} className="main-sneaker-large-holder">
+    <div
+      key={sneaker.styleID}
+      id={styleID}
+      className="main-sneaker-large-holder"
+    >
       <Link
         key={location.href}
         onClick={changeState}
@@ -35,6 +70,9 @@ export default function Sneaker(theSneaker, changeState) {
           </article>
         </section>
       </Link>
+      <button className="sneaker-save-button" onClick={saveShoe}>
+        Save Shoe
+      </button>
     </div>
   );
 }

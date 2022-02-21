@@ -1,8 +1,8 @@
-export default function LoadingSneaker() {
+export default function LoadingSneaker(key) {
   var images = ["/DunkPlaceHolder.PNG", "/JordanPlaceHolder.PNG"];
   var image = images[Math.floor(Math.random() * images.length)];
   return (
-    <div className="main-sneaker-large-holder">
+    <div key={key} className="main-sneaker-large-holder">
       <a>
         <section className="main-sneaker-holder">
           <article className="main-sneaker-top">
