@@ -54,6 +54,7 @@ header {
 #header-top-holder nav {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   width: 40%;
@@ -273,7 +274,7 @@ header {
   }
   #header-top-holder {
     flex-direction: column;
-    width: 300px;
+    width: 370px;
     padding-top: 40px;
   }
 
@@ -286,7 +287,7 @@ header {
     width: 300px;
   }
   .inline-search-holder {
-    top: 179px;
+    top: 160px;
     width: 300px;
     height: 500px;
   }
@@ -298,7 +299,7 @@ header {
   }
   #header-top-holder {
     flex-direction: column;
-    width: 250px;
+    width: 300px;
     padding-top: 40px;
   }
 
@@ -311,7 +312,7 @@ header {
     width: 250px;
   }
   .inline-search-holder {
-    top: 179px;
+    top: 160px;
     width: 250px;
     height: 500px;
   }

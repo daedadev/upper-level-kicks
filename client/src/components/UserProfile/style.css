@@ -1,6 +1,7 @@
 .dashboard-holder {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 1400px;
   min-height: 80vh;
@@ -9,6 +10,7 @@
 .dash-profile-holder {
   display: flex;
   flex-direction: row;
+  width: 100%;
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
@@ -17,10 +19,8 @@
 .dash-image-holder {
   display: flex;
   width: 120px;
-  border-style: solid;
   align-items: center;
   justify-content: center;
-  border-width: 1px;
   border-radius: 5px;
   margin: 20px;
 }
@@ -57,10 +57,54 @@
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-evenly;
+  width: 100%;
   min-height: 50vh;
   border-radius: 5px;
   border-width: 2px;
   border-style: solid;
   margin-top: 20px;
   padding-bottom: 20px;
+}
+
+.filling-holes {
+  width: 30%;
+}
+
+@media screen and (max-width: 1400px) {
+  .dash-profile-holder {
+    width: 98%;
+  }
+  .saved-shoes-holder {
+    width: 98%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 590px) {
+  .dash-profile-holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+  }
+  .dash-bio-holder {
+    align-items: center;
+    width: 90%;
+    margin: 0px 0px 20px 0px;
+    padding-left: 0;
+  }
+  .saved-shoes-holder {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+}
+
+@media screen and (max-width: 370px) {
 }

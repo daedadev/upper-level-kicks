@@ -119,10 +119,9 @@ export default function Header() {
           </Link>
 
           <nav>
-            <a>about</a>
             {currentUser ? (
               <>
-                <a onClick={logoutAccount}>log out</a> <a>your closet</a>
+                <a onClick={logoutAccount}>log out</a>
                 <a href="/dashboard">dashboard</a>
                 <h1 id="username-text">{userName}</h1>
                 <img id="username-image" src={userImage}></img>

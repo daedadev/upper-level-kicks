@@ -103,7 +103,18 @@
   }
 }
 
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 768px) {
+  .tweet-holder {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+  }
+  .tweet-profile {
+    width: 100%;
+  }
+  .tweet-content {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 420px) {

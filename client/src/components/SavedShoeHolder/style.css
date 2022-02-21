@@ -73,3 +73,32 @@
   cursor: pointer;
   font-size: larger;
 }
+
+@media screen and (max-width: 1400px) {
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+  .small-saved-shoe-holder {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .saved-top-holder {
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 590px) {
+}
+
+@media screen and (max-width: 420px) {
+  .saved-top-holder {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 370px) {
+}

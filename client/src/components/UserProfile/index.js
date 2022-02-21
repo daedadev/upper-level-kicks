@@ -89,6 +89,9 @@ function UserProfile() {
         </section>
         <section className="saved-shoes-holder">
           {loaded ? shoesLoaded : shoesLoading}
+          <div className="filling-holes"></div>
+          <div className="filling-holes"></div>
+          <div className="filling-holes"></div>
         </section>
       </div>
     );
