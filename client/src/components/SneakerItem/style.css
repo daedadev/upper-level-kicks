@@ -1,7 +1,7 @@
 .main-sneaker-large-holder {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   width: 80%;
   border-style: solid;
@@ -83,10 +83,14 @@
   background-color: #0076a5;
   border-style: solid;
   border-radius: 5px;
-  width: 90px;
+  width: 40px;
   height: 20px;
   cursor: pointer;
   transition: 0.2s;
+}
+
+.sneaker-save-button p {
+  font-size: larger;
 }
 
 .sneaker-save-button:hover {
@@ -100,10 +104,10 @@
   background-color: #209fd2;
   border-style: solid;
   border-radius: 5px;
-  width: 90px;
+  width: 80px;
   height: 20px;
   cursor: pointer;
-  transition: 0.6s;
+  transition: 0.2s;
 }
 
 @media screen and (max-width: 1400px) {
@@ -113,13 +117,27 @@
 }
 
 @media screen and (max-width: 992px) {
+  .main-sneaker-large-holder {
+    border-width: 1px;
+    height: 380px;
+    width: 85%;
+  }
+  .sneaker-save-button {
+    color: aliceblue;
+    border-color: #0076a5;
+    background-color: #0076a5;
+    border-style: solid;
+    border-radius: 5px;
+    width: 100px;
+    height: 90px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .main-sneaker-large-holder {
-    border-width: 1px;
-    height: 300px;
-    width: 85%;
+  .sneaker-save-button p {
+    font-size: larger;
   }
 }
 

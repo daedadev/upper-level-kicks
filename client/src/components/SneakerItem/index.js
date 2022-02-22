@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import "./style.css";
 
 export default function Sneaker(theSneaker, changeState) {
+  const [onHover, setonHover] = useState(true);
+
   const { currentUser } = useAuth();
 
   var sneaker = theSneaker.theSneaker;
@@ -70,8 +73,13 @@ export default function Sneaker(theSneaker, changeState) {
           </article>
         </section>
       </Link>
-      <button className="sneaker-save-button" onClick={saveShoe}>
-        Save Shoe
+      <button
+        className="sneaker-save-button"
+        onClick={saveShoe}
+        onMouseOver={() => setonHover(false)}
+        onMouseOut={() => setonHover(true)}
+      >
+        {onHover ? "+" : "Save"}
       </button>
     </div>
   );

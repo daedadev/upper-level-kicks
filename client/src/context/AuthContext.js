@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { auth } from "../config/firebaseConfig";
+import { auth, user } from "../config/firebaseConfig";
 
 const AuthContext = React.createContext();
 
@@ -14,10 +14,16 @@ export const AuthContextProvider = ({ children }) => {
     return auth
       .createUserWithEmailAndPassword(email, password)
       .then(function (result) {
-        return result.user.updateProfile({
-          displayName: userName,
-          photoURL: "http://clipart-library.com/img/741831.jpg",
-        });
+        return result.user
+          .updateProfile({
+            displayName: userName,
+          })
+          .then(() => {
+            result.user.updateProfile({
+              photoURL:
+                "https://cdn.clipartsfree.net/vector/medium/70605-profile-images.png",
+            });
+          });
       })
       .catch(function (error) {
         console.log(error);

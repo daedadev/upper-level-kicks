@@ -16,9 +16,13 @@ function Footer() {
         </article>
         <nav id="contact-details">
           <ul>
-            <li>
-              <p>DanielChrisMoore@gmail.com</p>
-            </li>
+            <a
+              href="https://danielmooreportfolio.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              My Portfolio
+            </a>
             <li>
               <a
                 href="https://github.com/wron1"
