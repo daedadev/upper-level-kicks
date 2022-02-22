@@ -73,14 +73,18 @@ export default function Sneaker(theSneaker, changeState) {
           </article>
         </section>
       </Link>
-      <button
-        className="sneaker-save-button"
-        onClick={saveShoe}
-        onMouseOver={() => setonHover(false)}
-        onMouseOut={() => setonHover(true)}
-      >
-        {onHover ? "+" : "Save"}
-      </button>
+      {currentUser ? (
+        <button
+          className="sneaker-save-button"
+          onClick={saveShoe}
+          onMouseOver={() => setonHover(false)}
+          onMouseOut={() => setonHover(true)}
+        >
+          {onHover ? "+" : "Save"}
+        </button>
+      ) : (
+        <div></div>
+      )}
     </div>
   );
 }
