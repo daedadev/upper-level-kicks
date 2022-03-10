@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wron1/SneakerProject.git"
+    "url": "git+https://github.com/daedadev/SneakerProject.git"
   },
   "author": "Daniel Moore",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wron1/SneakerProject/issues"
+    "url": "https://github.com/daedadev/SneakerProject/issues"
   },
-  "homepage": "https://github.com/wron1/SneakerProject#readme",
+  "homepage": "https://github.com/daedadev/SneakerProject#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "concurrently": "^7.0.0",
